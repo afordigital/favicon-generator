@@ -1,35 +1,47 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import "./App.css";
 import Layout from "./layouts/Layout";
-import { Bicycle } from "./assets/icons/Bicycle";
-import { HomeIcon } from "./assets/icons/Home";
-import { SearchIcon } from "./assets/icons/Search";
-import { SettingsIcon } from "./assets/icons/Settings";
+import { iconsMap } from "./lib/iconsMap";
+import { Canvas } from "./components/middle-canvas/Canvas";
 
-// Mapeo de iconos
-const iconsMap = {
-  Bicycle: Bicycle,
-  Home: HomeIcon,
-  Search: SearchIcon,
-  Settings: SettingsIcon
+type ContextType = {
+  icon: keyof typeof iconsMap;
+  setIcon: (icon: keyof typeof iconsMap) => void;
 };
+
+export const IconContext = createContext<ContextType>({
+  icon: "Bicycle",
+  setIcon: () => {},
+});
+
+import type { SVGProps } from "react";
+
+export interface iconProps extends SVGProps<SVGSVGElement> {
+  bgColor: string;
+  bgColorType: "Solid" | "LinearGradient" | "RadialGradient";
+  angle: string;
+  radius: string;
+  strokeWidth: string;
+  strokeColor: string;
+  noiseTexture: boolean;
+  noiseOpacity: string;
+  iconSize: string;
+  iconColor: string;
+  xOffset: string;
+  yOffset: string;
+}
 
 function App() {
   const [icon, setIcon] = useState<keyof typeof iconsMap>("Bicycle");
 
-  const IconComponent = iconsMap[icon];
-
+  const [iconProps, setIconProps] = useState<iconProps>();
 
   return (
-    <Layout>
-      <IconComponent strokeWidth={1} width={50} height={50} />
-      <div className="flex gap-4">
-        <button onClick={() => setIcon("Home")}>Home Icon</button>
-        <button onClick={() => setIcon("Search")}>Search Icon</button>
-        <button onClick={() => setIcon("Bicycle")}>Bicycle Icon</button>
-        <button onClick={() => setIcon("Settings")}>Settings Icon</button>
-      </div>
-    </Layout>
+    <IconContext.Provider value={{ icon, setIcon }}>
+      <Layout>
+        <Canvas />
+      </Layout>
+    </IconContext.Provider>
   );
 }
 

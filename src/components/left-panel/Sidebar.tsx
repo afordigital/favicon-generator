@@ -1,5 +1,3 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
-
 import {
   Sidebar,
   SidebarContent,
@@ -7,55 +5,73 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
 } from "@/components/ui/sidebar";
-
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
-];
+import { iconsMap } from "@/lib/iconsMap";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { useContext } from "react";
+import { IconContext } from "@/App";
+import { Button } from "../ui/button";
 
 export function LeftSidebar() {
+  const context = useContext(IconContext);
+
+  const { setIcon } = context;
+
   return (
     <Sidebar className="border-gray-800" variant="floating">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <div>
+            <Label htmlFor="email" />
+
+            <Input
+              type="search"
+              placeholder="Search icons"
+              className="rounded-[4px]"
+            />
+          </div>
+          <SidebarGroupLabel>All icons</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+            <SidebarMenu className="grid grid-cols-4 max">
+              {Object.entries(iconsMap).map(([key, IconComponent]) => (
+                <Button
+                  key={key}
+                  variant="outline"
+                  onClick={() => {
+                    console.log(key);
+                    setIcon(key as keyof typeof iconsMap);
+                  }}
+                  className="rounded-[4px]"
+                >
+                  <IconComponent className="aspect-square w-[40px]" />
+                </Button>
+              ))}
+              {Object.entries(iconsMap).map(([key, IconComponent]) => (
+                <Button
+                  key={key}
+                  variant="outline"
+                  onClick={() => {
+                    console.log(key);
+                    setIcon(key as keyof typeof iconsMap);
+                  }}
+                  className="rounded-[4px]"
+                >
+                  <IconComponent className="aspect-square w-[40px]" />
+                </Button>
+              ))}
+              {Object.entries(iconsMap).map(([key, IconComponent]) => (
+                <Button
+                  key={key}
+                  variant="outline"
+                  onClick={() => {
+                    console.log(key);
+                    setIcon(key as keyof typeof iconsMap);
+                  }}
+                  className="rounded-[4px]"
+                >
+                  <IconComponent className="aspect-square w-[40px]" />
+                </Button>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
