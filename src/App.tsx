@@ -3,19 +3,35 @@ import "./App.css";
 import Layout from "./layouts/Layout";
 import { iconsMap } from "./lib/iconsMap";
 import { Canvas } from "./components/middle-canvas/Canvas";
-import { useHistoryState } from "@uidotdev/usehooks"; 
+import { useHistoryState } from "@uidotdev/usehooks";
 
 type ContextType = {
-  icon: keyof typeof iconsMap;
-  setIcon: (icon: keyof typeof iconsMap) => void;
+  icon: IconProps;
+  setIcon: (icon: IconProps) => void;
   undo: () => void;
   redo: () => void;
   canUndo: boolean;
   canRedo: boolean;
 };
 
+const DEFAULT_ICON: IconProps = {
+  bgColor: "#3c495d",
+  bgColorType: "Solid",
+  angle: 0,
+  radius: 8,
+  strokeWidth: 2,
+  strokeColor: "#ffffff",
+  noiseTexture: false,
+  noiseOpacity: 0,
+  iconName: "Bicycle",
+  iconSize: 64,
+  iconColor: "#ffffff",
+  xOffset: 0,
+  yOffset: 0,
+};
+
 export const IconContext = createContext<ContextType>({
-  icon: "Bicycle",
+  icon: DEFAULT_ICON,
   setIcon: () => {},
   undo: () => {},
   redo: () => {},
@@ -28,16 +44,17 @@ import type { SVGProps } from "react";
 export interface IconProps extends SVGProps<SVGSVGElement> {
   bgColor: string;
   bgColorType: "Solid" | "LinearGradient" | "RadialGradient";
-  angle: string;
-  radius: string;
-  strokeWidth: string;
+  angle: number;
+  radius: number;
+  strokeWidth: number;
   strokeColor: string;
   noiseTexture: boolean;
-  noiseOpacity: string;
-  iconSize: string;
+  noiseOpacity: number;
+  iconName: keyof typeof iconsMap;
+  iconSize: number;
   iconColor: string;
-  xOffset: string;
-  yOffset: string;
+  xOffset: number;
+  yOffset: number;
 }
 
 function App() {
@@ -49,8 +66,7 @@ function App() {
     redo: redoIcon,
     canUndo,
     canRedo,
-  } = useHistoryState<keyof typeof iconsMap>("Bicycle");
-
+  } = useHistoryState<IconProps>(DEFAULT_ICON);
 
   // Manejo del estado de propiedades del ícono con historial
   const {
@@ -61,7 +77,6 @@ function App() {
     canUndo: canUndoProps,
     canRedo: canRedoProps,
   } = useHistoryState<IconProps | undefined>(undefined);
-  
 
   const undo = () => {
     undoIcon();
