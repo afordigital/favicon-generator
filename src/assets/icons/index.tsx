@@ -1,0 +1,17 @@
+export { default as Activity } from './Bicycle';
+export { default as Airplay } from './Airplay';
+export { default as AlertTriangle } from './AlertTriangle';
+export { default as Anchor } from './Anchor';
+export { default as ArrowDownCircle } from './ArrowDownCircle';
+export { default as BatteryCharging } from './BatteryCharging';
+export { default as Bell } from './Bell';
+export { default as Bicycle } from './Bicycle';
+export { default as Camera } from './Camera';
+export { default as Clock } from './Clock';
+export { default as Heart } from './Heart';
+export { default as Home } from './Home';
+export { default as Moon } from './Moon';
+export { default as Search } from './Search';
+export { default as Settings } from './Settings';
+export { default as Star } from './Star';
+export { default as Sun } from './Sun';

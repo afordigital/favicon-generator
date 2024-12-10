@@ -14,9 +14,10 @@ import { IconContext } from "@/App";
 import { Button } from "../ui/button";
 
 export function LeftSidebar() {
-  const context = useContext(IconContext);
 
-  const { setIcon } = context;
+  const { icon, setIcon, undo, redo, canUndo, canRedo } = useContext(IconContext);
+
+
 
   return (
     <Sidebar className="border-gray-800" variant="floating">
@@ -74,6 +75,12 @@ export function LeftSidebar() {
                 </Button>
               ))}
             </SidebarMenu>
+            <button onClick={undo} disabled={!canUndo}>
+              Undo
+            </button>
+            <button onClick={redo} disabled={!canRedo}>
+              Redo
+            </button>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
