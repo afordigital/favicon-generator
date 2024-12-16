@@ -12,7 +12,7 @@ import { useContext, useState } from "react";
 import { IconContext } from "@/App";
 import { Button } from "../ui/button";
 import Icon from "../icon";
-import { icons } from "lucide-react";
+import { icons, Shuffle } from "lucide-react";
 import { CollapsibleComponent } from "./Collapsible";
 
 export function LeftSidebar() {
