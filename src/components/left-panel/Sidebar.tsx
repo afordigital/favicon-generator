@@ -5,7 +5,7 @@ import {
   SidebarGroupContent,
   SidebarMenu,
 } from "@/components/ui/sidebar";
-import { icons, isLucideIcon } from "@/lib/iconsMap";
+import { icons, isLucideIcon } from "@/lib/icons";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { useContext, useState } from "react";

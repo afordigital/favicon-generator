@@ -1,20 +1,21 @@
 import { IconContext } from "@/App";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { Input } from "../ui/input";
+import { debounce } from "@/lib/utils";
 
 export const HandleBackground = () => {
   const { icon, setIcon } = useContext(IconContext);
 
-  console.log(icon);
+  const debouncedSetIcon = useMemo(() => debounce(setIcon, 150), [setIcon]);
 
   return (
     <section className="flex-col gap-4 mt-4">
       <label htmlFor="bgColor">
-        background
+        Background
         <Input
           id="bgColor"
           onChange={(event) => {
-            setIcon({ ...icon, bgColor: event.target.value });
+            debouncedSetIcon({ ...icon, bgColor: event.target.value });
           }}
           defaultValue={icon.bgColor}
           type="color"
@@ -22,7 +23,7 @@ export const HandleBackground = () => {
         />
       </label>
       <label htmlFor="radius">
-        radius
+        Radius
         <Input
           id="radius"
           onChange={(event) => {

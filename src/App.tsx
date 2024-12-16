@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import "./App.css";
 import Layout from "./layouts/Layout";
-import { icons } from "./lib/iconsMap";
+import { icons } from "./lib/icons";
 import { Canvas } from "./components/middle-canvas/Canvas";
 import { useHistoryState } from "@uidotdev/usehooks";
 
@@ -75,24 +75,12 @@ function App() {
     canRedo,
   } = useHistoryState<IconProps>(DEFAULT_ICON);
 
-  // Manejo del estado de propiedades del ícono con historial
-  const {
-    // state: iconProps,
-    // set: setIconProps,
-    undo: undoIconProps,
-    redo: redoIconProps,
-    canUndo: canUndoProps,
-    canRedo: canRedoProps,
-  } = useHistoryState<IconProps | undefined>(undefined);
-
   const undo = () => {
     undoIcon();
-    undoIconProps();
   };
 
   const redo = () => {
     redoIcon();
-    redoIconProps();
   };
 
   return (
@@ -102,8 +90,8 @@ function App() {
         setIcon,
         undo,
         redo,
-        canUndo: canUndo || canUndoProps,
-        canRedo: canRedo || canRedoProps,
+        canUndo,
+        canRedo,
         svgElement,
         setSvgElement,
       }}
