@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import "./App.css";
 import Layout from "./layouts/Layout";
-import { iconsMap } from "./lib/iconsMap";
+import { icons } from "./lib/iconsMap";
 import { Canvas } from "./components/middle-canvas/Canvas";
 import { useHistoryState } from "@uidotdev/usehooks";
 
@@ -55,7 +55,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
   strokeColor: string;
   noiseTexture: boolean;
   noiseOpacity: number;
-  iconName: keyof typeof iconsMap;
+  iconName: keyof typeof icons;
   iconColor: string;
   iconSize?: number;
   xOffset?: number;

@@ -1,25 +1,10 @@
-import {icons} from "lucide-react"
+import { icons as LucideIcons } from "lucide-react";
 
-export const iconsMap = icons
+export const icons = LucideIcons;
 
-console.log(icons)
+export type Icon = keyof typeof icons;
 
-// export const iconsMap = {
-//   Bicycle: icons.Bicycle,
-//   Activity: icons.Activity,
-//   Airplay: icons.Airplay,
-//   AlertTriangle: icons.AlertTriangle,
-//   Anchor: icons.Anchor,
-//   ArrowDownCircle: icons.ArrowDownCircle,
-//   BatteryCharging: icons.BatteryCharging,
-//   Bell: icons.Bell,
-//   Camera: icons.Camera,
-//   Clock: icons.Clock,
-//   Heart: icons.Heart,
-//   Home: icons.Home,
-//   Moon: icons.Moon,
-//   Search: icons.Search,
-//   Settings: icons.Settings,
-//   Star: icons.Star,
-//   Sun: icons.Sun,
-// };
+export const iconNames = Object.keys(icons);
+export const isLucideIcon = (iconName: string): iconName is Icon => {
+  return iconNames.includes(iconName);
+};

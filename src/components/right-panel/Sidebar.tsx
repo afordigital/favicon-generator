@@ -29,7 +29,6 @@ export function RightSidebar() {
                   downloadSvg(svgElement);
                 }}
                 disabled={!svgElement}
-                asChild
               >
                 Download SVG
               </Button>
