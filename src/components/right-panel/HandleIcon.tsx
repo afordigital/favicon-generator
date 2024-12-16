@@ -1,5 +1,5 @@
 import { IconContext } from "@/App";
-import { useContext } from "react";
+import { useContext,  } from "react";
 import { Input } from "../ui/input";
 
 export const HandleIcon = () => {
@@ -14,7 +14,6 @@ export const HandleIcon = () => {
           onChange={(event) => {
             setIcon({ ...icon, iconColor: event.target.value });
           }}
-          defaultValue={icon.iconColor}
           type="color"
           value={icon.iconColor}
         />
@@ -24,7 +23,7 @@ export const HandleIcon = () => {
         <Input
           id="iconSize"
           onChange={(event) => {
-            setIcon({ ...icon, iconSize: Number(event.target.value) });
+            setIcon({ ...icon, iconSize: event.target.value ? Number(event.target.value) : undefined });
           }}
           type="number"
           value={icon.iconSize}
@@ -35,7 +34,7 @@ export const HandleIcon = () => {
         <Input
           id="xOffset"
           onChange={(event) => {
-            setIcon({ ...icon, xOffset: Number(event.target.value) });
+            setIcon({ ...icon, xOffset: event.target.value ? Number(event.target.value) : undefined });
           }}
           type="number"
           value={icon.xOffset}
@@ -46,7 +45,7 @@ export const HandleIcon = () => {
         <Input
           id="yOffset"
           onChange={(event) => {
-            setIcon({ ...icon, yOffset: Number(event.target.value) });
+            setIcon({ ...icon, yOffset: event.target.value ? Number(event.target.value) : undefined });
           }}
           type="number"
           value={icon.yOffset}

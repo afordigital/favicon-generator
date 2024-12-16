@@ -23,8 +23,8 @@ const DEFAULT_ICON: IconProps = {
   strokeColor: "#ffffff",
   noiseTexture: false,
   noiseOpacity: 0,
-  iconName: "Bicycle",
-  iconSize: 200,
+  iconName: "Bike",
+  iconSize: 64,
   iconColor: "#ffffff",
   xOffset: 0,
   yOffset: 0,
@@ -51,10 +51,10 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
   noiseTexture: boolean;
   noiseOpacity: number;
   iconName: keyof typeof iconsMap;
-  iconSize: number;
   iconColor: string;
-  xOffset: number;
-  yOffset: number;
+  iconSize?: number;
+  xOffset?: number;
+  yOffset?: number;
 }
 
 function App() {
