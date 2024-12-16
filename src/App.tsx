@@ -77,8 +77,8 @@ function App() {
 
   // Manejo del estado de propiedades del ícono con historial
   const {
-    state: iconProps,
-    set: setIconProps,
+    // state: iconProps,
+    // set: setIconProps,
     undo: undoIconProps,
     redo: redoIconProps,
     canUndo: canUndoProps,

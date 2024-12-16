@@ -40,7 +40,6 @@ export function LeftSidebar() {
               className="rounded-[4px]"
               onClick={() => {
                 const randomIcon = getRandomIcon();
-                if (!randomIcon) return;
                 setIcon({ ...icon, iconName: randomIcon });
               }}
             >
