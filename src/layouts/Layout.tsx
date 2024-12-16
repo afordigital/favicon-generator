@@ -12,14 +12,14 @@ export default function Layout({ children }: LayoutProps) {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <SidebarProvider>
         <LeftSidebar />
-        <SidebarTrigger className="text-white ml-2 mt-2 border rounded-[4px] border-white border-solid" />
-      </SidebarProvider>
+        <SidebarTrigger className="text-white mt-2 p-6 border rounded-[4px] border-solid" />
 
-      <main className="flex w-full text-white">{children}</main>
+        <main className="flex w-full text-white">{children}</main>
 
-      <SidebarProvider>
-        <SidebarTrigger className="text-white mt-2 border rounded-[4px] border-white border-solid" />
-        <RightSidebar />
+        <SidebarProvider className="w-fit">
+          <SidebarTrigger className="text-white mt-2 border rounded-[4px] border-white border-solid" />
+          <RightSidebar />
+        </SidebarProvider>
       </SidebarProvider>
     </ThemeProvider>
   );

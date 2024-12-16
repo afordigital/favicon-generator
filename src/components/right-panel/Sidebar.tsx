@@ -3,13 +3,11 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
 } from "@/components/ui/sidebar";
 import { HandleIcon } from "./HandleIcon";
-import { AccordionContent, AccordionTrigger } from "@radix-ui/react-accordion";
-import { Accordion, AccordionItem } from "../ui/accordion";
 import { HandleBackground } from "./HandleBackground";
+import { CollapsibleComponent } from "../left-panel/Collapsible";
 
 export function RightSidebar() {
   return (
@@ -18,28 +16,15 @@ export function RightSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              <Accordion
-                type="multiple"
-                defaultValue={["item-1", "item-2"]}
-                className="flex flex-col gap-8"
-              >
-                <AccordionItem value="item-1">
-                  <AccordionTrigger asChild>
-                    <SidebarGroupLabel>Background Props</SidebarGroupLabel>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <HandleBackground />
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger asChild>
-                    <SidebarGroupLabel>Icon Props</SidebarGroupLabel>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <HandleIcon />
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <CollapsibleComponent title="Background Props">
+                <HandleBackground />
+              </CollapsibleComponent>
+              <CollapsibleComponent title="Icon Props">
+                <HandleIcon />
+              </CollapsibleComponent>
+              <CollapsibleComponent title="Help">
+                <p>Hola</p>
+              </CollapsibleComponent>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

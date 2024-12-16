@@ -6,7 +6,7 @@ export const HandleIcon = () => {
   const { icon, setIcon } = useContext(IconContext);
 
   return (
-    <section className="">
+    <section className="flex flex-col gap-4">
       <label htmlFor="iconColor">
         Color del icono:
         <Input

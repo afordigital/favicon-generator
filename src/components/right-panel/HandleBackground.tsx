@@ -4,10 +4,13 @@ import { Input } from "../ui/input";
 
 export const HandleBackground = () => {
   const { icon, setIcon } = useContext(IconContext);
+
+  console.log(icon);
+
   return (
-    <section>
+    <section className="flex-col gap-4 mt-4">
       <label htmlFor="bgColor">
-        Color del background:
+        background
         <Input
           id="bgColor"
           onChange={(event) => {
@@ -16,6 +19,18 @@ export const HandleBackground = () => {
           defaultValue={icon.bgColor}
           type="color"
           value={icon.bgColor}
+        />
+      </label>
+      <label htmlFor="radius">
+        radius
+        <Input
+          id="radius"
+          onChange={(event) => {
+            setIcon({ ...icon, radius: Number(event.target.value) });
+          }}
+          defaultValue={icon.radius}
+          type="number"
+          value={icon.radius}
         />
       </label>
     </section>
