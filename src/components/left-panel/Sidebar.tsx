@@ -11,8 +11,7 @@ import { Label } from "../ui/label";
 import { useContext, useState } from "react";
 import { IconContext } from "@/App";
 import { Button } from "../ui/button";
-import Icon from "../icon";
-import { icons, Shuffle } from "lucide-react";
+import { Shuffle } from "lucide-react";
 import { CollapsibleComponent } from "./Collapsible";
 
 export function LeftSidebar() {
@@ -46,29 +45,28 @@ export function LeftSidebar() {
               <Shuffle />
             </Button>
           </div>
-          <CollapsibleComponent title='All icons'>
-         
-          <SidebarGroupContent>
-            <SidebarMenu className="grid grid-cols-4 max">
-              {Object.entries(iconsMap)
-                .filter(([key]) =>
-                  key.toLowerCase().includes(iconSearch.toLowerCase())
-              )
-              .map(([key, IconComponent]) => (
-                <Button
-                key={key}
-                variant="outline"
-                onClick={() => {
-                  setIcon({ ...icon, iconName: key });
-                }}
-                className="rounded-[4px]"
-                >
-                    <IconComponent className="aspect-square w-[40px]" />
-                  </Button>
-                ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-                </CollapsibleComponent>
+          <CollapsibleComponent title="All icons">
+            <SidebarGroupContent>
+              <SidebarMenu className="grid grid-cols-4 max">
+                {Object.entries(iconsMap)
+                  .filter(([key]) =>
+                    key.toLowerCase().includes(iconSearch.toLowerCase())
+                  )
+                  .map(([key, IconComponent]) => (
+                    <Button
+                      key={key}
+                      variant="outline"
+                      onClick={() => {
+                        setIcon({ ...icon, iconName: key });
+                      }}
+                      className="rounded-[4px]"
+                    >
+                      <IconComponent className="aspect-square w-[40px]" />
+                    </Button>
+                  ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </CollapsibleComponent>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>

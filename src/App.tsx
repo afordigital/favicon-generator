@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import "./App.css";
 import Layout from "./layouts/Layout";
 import { iconsMap } from "./lib/iconsMap";
@@ -12,6 +12,8 @@ type ContextType = {
   redo: () => void;
   canUndo: boolean;
   canRedo: boolean;
+  svgElement: SVGSVGElement | null;
+  setSvgElement: (svgElement: SVGSVGElement | null) => void;
 };
 
 const DEFAULT_ICON: IconProps = {
@@ -24,7 +26,7 @@ const DEFAULT_ICON: IconProps = {
   noiseTexture: false,
   noiseOpacity: 0,
   iconName: "Bike",
-  iconSize: 64,
+  iconSize: undefined,
   iconColor: "#ffffff",
   xOffset: 0,
   yOffset: 0,
@@ -37,9 +39,12 @@ export const IconContext = createContext<ContextType>({
   redo: () => {},
   canUndo: false,
   canRedo: false,
+  svgElement: null,
+  setSvgElement: () => {},
 });
 
 import type { SVGProps } from "react";
+import { CanvasLayout } from "./components/middle-canvas/CanvasLayout";
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
   bgColor: string;
@@ -58,6 +63,8 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 }
 
 function App() {
+  const [svgElement, setSvgElement] = useState<SVGSVGElement | null>(null);
+
   // Manejo del estado de icono con historial
   const {
     state: icon,
@@ -97,10 +104,14 @@ function App() {
         redo,
         canUndo: canUndo || canUndoProps,
         canRedo: canRedo || canRedoProps,
+        svgElement,
+        setSvgElement,
       }}
     >
       <Layout>
-        <Canvas />
+        <CanvasLayout>
+          <Canvas />
+        </CanvasLayout>
       </Layout>
     </IconContext.Provider>
   );
