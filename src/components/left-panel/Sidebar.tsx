@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/sidebar";
 import { icons, isLucideIcon } from "@/lib/icons";
 import { Input } from "../ui/input";
-import { Label } from "../ui/label";
 import { useContext, useState } from "react";
 import { IconContext } from "@/App";
 import { Button } from "../ui/button";
@@ -23,32 +22,32 @@ export function LeftSidebar() {
   return (
     <Sidebar className="border-gray-800" variant="floating">
       <SidebarContent>
+        <SidebarGroup className="flex flex-row gap-2">
+          <Input
+            type="search"
+            placeholder="Search icons"
+            className="rounded-[4px]"
+            value={iconSearch}
+            onChange={(event) => {
+              setIconSearch(event.target.value);
+            }}
+          />
+          <Button
+            variant="outline"
+            className="rounded-[4px]"
+            onClick={() => {
+              const randomIcon = getRandomIcon();
+              setIcon({ ...icon, iconName: randomIcon });
+            }}
+          >
+            <Shuffle />
+          </Button>
+        </SidebarGroup>
+
         <SidebarGroup>
-          <div className="flex gap-2">
-            <Label htmlFor="email" />
-            <Input
-              type="search"
-              placeholder="Search icons"
-              className="rounded-[4px]"
-              value={iconSearch}
-              onChange={(event) => {
-                setIconSearch(event.target.value);
-              }}
-            />
-            <Button
-              variant="outline"
-              className="rounded-[4px]"
-              onClick={() => {
-                const randomIcon = getRandomIcon();
-                setIcon({ ...icon, iconName: randomIcon });
-              }}
-            >
-              <Shuffle />
-            </Button>
-          </div>
           <CollapsibleComponent title="All icons">
-            <SidebarGroupContent>
-              <SidebarMenu className="grid grid-cols-4 max">
+            <SidebarGroupContent className="mt-3">
+              <SidebarMenu className="grid grid-cols-[repeat(4,1fr)] gap-2">
                 {Object.entries(icons)
                   .filter(([key]) =>
                     key.toLowerCase().includes(iconSearch.toLowerCase())
@@ -61,9 +60,9 @@ export function LeftSidebar() {
                         if (!isLucideIcon(key)) return;
                         setIcon({ ...icon, iconName: key });
                       }}
-                      className="rounded-[4px]"
+                      className="rounded-md aspect-square w-full h-auto [&_svg]:size-6"
                     >
-                      <IconComponent className="aspect-square w-[40px]" />
+                      <IconComponent />
                     </Button>
                   ))}
               </SidebarMenu>
