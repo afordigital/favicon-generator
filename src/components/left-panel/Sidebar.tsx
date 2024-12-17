@@ -5,7 +5,6 @@ import {
   SidebarGroupContent,
   SidebarMenu,
 } from "@/components/ui/sidebar";
-import { icons, isLucideIcon } from "@/lib/icons";
 import { Input } from "../ui/input";
 import { useContext, useState } from "react";
 import { IconContext } from "@/App";
@@ -13,6 +12,7 @@ import { Button } from "../ui/button";
 import { Shuffle } from "lucide-react";
 import { CollapsibleComponent } from "./Collapsible";
 import { getRandomIcon } from "@/lib/utils";
+import IconList from "./IconList";
 
 export function LeftSidebar() {
   const { icon, setIcon } = useContext(IconContext);
@@ -48,23 +48,7 @@ export function LeftSidebar() {
           <CollapsibleComponent title="All icons">
             <SidebarGroupContent className="mt-3">
               <SidebarMenu className="grid grid-cols-[repeat(4,1fr)] gap-2">
-                {Object.entries(icons)
-                  .filter(([key]) =>
-                    key.toLowerCase().includes(iconSearch.toLowerCase())
-                  )
-                  .map(([key, IconComponent]) => (
-                    <Button
-                      key={key}
-                      variant="outline"
-                      onClick={() => {
-                        if (!isLucideIcon(key)) return;
-                        setIcon({ ...icon, iconName: key });
-                      }}
-                      className="rounded-md aspect-square w-full h-auto [&_svg]:size-6"
-                    >
-                      <IconComponent />
-                    </Button>
-                  ))}
+                <IconList iconSearch={iconSearch} setIcon={(partialIcon) => setIcon({...icon, ...partialIcon})} />
               </SidebarMenu>
             </SidebarGroupContent>
           </CollapsibleComponent>
