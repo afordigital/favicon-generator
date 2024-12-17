@@ -22,7 +22,6 @@ export const debounce = <Fn extends (...args: any[]) => any>(
     if (timeoutId) {
       globalThis.clearTimeout(timeoutId);
     }
-    // @ts-expect-error
     timeoutId = globalThis.setTimeout(fn, delay, ...args);
   };
 };
