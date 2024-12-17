@@ -16,6 +16,7 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.4",
     "@uidotdev/usehooks": "^2.4.1",
     "@vitejs/plugin-react": "^4.3.4",

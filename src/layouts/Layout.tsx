@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
         <main className="flex w-full text-white">{children}</main>
 
         <SidebarProvider className="w-fit">
-          <SidebarTrigger className="text-white mt-2 border rounded-[4px] border-white border-solid" />
+          <SidebarTrigger className="text-white mt-2 p-6 border rounded-[4px] border-solid" />
           <RightSidebar />
         </SidebarProvider>
       </SidebarProvider>
