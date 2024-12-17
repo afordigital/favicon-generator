@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/sidebar";
 import { icons, isLucideIcon } from "@/lib/icons";
 import { Input } from "../ui/input";
-import { Label } from "../ui/label";
 import { useContext, useState } from "react";
 import { IconContext } from "@/App";
 import { Button } from "../ui/button";
