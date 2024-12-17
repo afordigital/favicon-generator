@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import "./App.css";
 import Layout from "./layouts/Layout";
 import { icons } from "./lib/icons";
 import { Canvas } from "./components/middle-canvas/Canvas";

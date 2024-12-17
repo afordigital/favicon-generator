@@ -9,10 +9,10 @@ export const Canvas = () => {
 
   const ICON_X = icon.iconSize
     ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.xOffset ?? 0)
-    : 0;
+    : 0 + (icon.xOffset ?? 0);
   const ICON_Y = icon.iconSize
     ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.yOffset ?? 0)
-    : 0;
+    : 0 + (icon.yOffset ?? 0);
 
   return (
     <svg
@@ -43,18 +43,3 @@ export const Canvas = () => {
     </svg>
   );
 };
-
-// <div
-//   style={{ "--bgColor": icon.bgColor, borderRadius: icon.radius }}
-//   className={`w-[512px] h-[512px] bg-[var(--bgColor)] flex items-center justify-center `}
-// >
-//   <Icon
-//     name={icon.iconName}
-//     color={icon.iconColor}
-//     strokeWidth={1}
-//     fill={icon.bgColor}
-//     width={icon.iconSize}
-//     height={icon.iconSize}
-//     offsets={[icon.xOffset ?? 0, icon.yOffset ?? 0]}
-//   />
-// </div>
