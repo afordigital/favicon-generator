@@ -1,15 +1,11 @@
-/** @type {import('tailwindcss').Config} */
+import twAnimate from 'tailwindcss-animate';
+import type { Config } from 'tailwindcss'
 
-module.exports = {
+const config = {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       colors: {
         "cs-background": "#09090B",
         sidebar: {
@@ -47,5 +43,7 @@ module.exports = {
       },
     },
   },
-  plugins: [import("tailwindcss-animate")],
-};
+  plugins: [twAnimate],
+} satisfies Config;
+
+export default config;
