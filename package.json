@@ -19,6 +19,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.4",
+    "@tanstack/react-virtual": "^3.11.2",
     "@uidotdev/usehooks": "^2.4.1",
     "@vitejs/plugin-react": "^4.3.4",
     "class-variance-authority": "^0.7.1",
