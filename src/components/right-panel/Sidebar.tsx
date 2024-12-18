@@ -40,7 +40,7 @@ export function RightSidebar() {
                 <HandleIcon />
               </CollapsibleComponent>
               <CollapsibleComponent title="Help">
-                <p>Hola</p>
+                <p>Tronchos</p>
               </CollapsibleComponent>
             </SidebarMenu>
           </SidebarGroupContent>
