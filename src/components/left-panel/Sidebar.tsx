@@ -129,17 +129,3 @@ export function LeftSidebar() {
     </Sidebar>
   );
 }
-
-/*
-<Button
-                      key={key}
-                      variant="outline"
-                      onClick={() => {
-                        if (!isLucideIcon(key)) return;
-                        setIcon({ ...icon, iconName: key });
-                      }}
-                      className="rounded-md aspect-square w-full h-auto [&_svg]:size-6"
-                    >
-                      <IconComponent />
-                    </Button>
-                    */
