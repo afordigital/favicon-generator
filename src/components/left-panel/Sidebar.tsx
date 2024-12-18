@@ -77,7 +77,7 @@ export function LeftSidebar() {
               setRenderIcons((prev) => !prev);
             }}
           >
-            <SidebarGroupContent className="pt-3 overflow-y-auto contain-strict h-full" ref={parentRef}>
+            <SidebarGroupContent className="pt-3 overflow-y-auto contain-strict h-full no-scrollbar" ref={parentRef}>
               <SidebarMenu
                 style={{
                   height: `${rowVirtualizer.getTotalSize()}px`,
