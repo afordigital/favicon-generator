@@ -13,7 +13,7 @@ export const CollapsibleComponent = ({
 }: {
   title: string;
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }) => {
   return (
     <Collapsible defaultOpen className="group/collapsible flex-1">
