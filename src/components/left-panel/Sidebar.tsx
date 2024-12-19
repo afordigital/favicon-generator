@@ -69,7 +69,6 @@ export function LeftSidebar() {
             <Shuffle />
           </Button>
         </SidebarGroup>
-
         <SidebarGroup className="p-0 flex-1">
           <CollapsibleComponent
             title="All icons"
