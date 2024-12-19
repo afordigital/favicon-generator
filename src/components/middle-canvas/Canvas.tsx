@@ -1,18 +1,16 @@
-import { IconContext } from "@/App";
-import { useContext } from "react";
-import Icon from "../icon";
+import { useContext } from 'react';
+import Icon from '../icon';
+import { IconContext } from '@/App';
 
 const CANVAS_SIZE = 512;
 
 export const Canvas = () => {
   const { icon, setSvgElement } = useContext(IconContext);
 
-  const ICON_X = icon.iconSize
-    ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.xOffset ?? 0)
-    : 0 + (icon.xOffset ?? 0);
-  const ICON_Y = icon.iconSize
-    ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.yOffset ?? 0)
-    : 0 + (icon.yOffset ?? 0);
+  const ICON_X = icon.iconSize ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.xOffset ?? 0) : 0 + (icon.xOffset ?? 0);
+  const ICON_Y = icon.iconSize ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.yOffset ?? 0) : 0 + (icon.yOffset ?? 0);
+
+  console.log(icon);
 
   return (
     <>
@@ -24,16 +22,10 @@ export const Canvas = () => {
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
-        <filter id="multiLayerNoiseFilter">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency={1.73}
-            numOctaves="3"
-            stitchTiles="stitch"
-            result="noise1"
-          />
+        {/* <filter id="multiLayerNoiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency={1.73} numOctaves="3" stitchTiles="stitch" result="noise1" />
           <feColorMatrix
-            in="blendedNoise"
+            in="noise1"
             type="matrix"
             values={`0 0 0 0 0
                  0 0 0 0 0
@@ -41,7 +33,7 @@ export const Canvas = () => {
                  0 0 0 ${icon.noiseOpacity} 0`}
             result="colorNoise"
           />
-        </filter>
+        </filter> */}
         <rect
           width={CANVAS_SIZE}
           height={CANVAS_SIZE}

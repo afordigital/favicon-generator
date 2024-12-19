@@ -2,6 +2,7 @@ import { Fragment, useContext, useMemo, useRef, useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { CollapsibleComponent } from './Collapsible';
+import { LastIconsSaved } from './LastIconsSaved';
 import { IconContext } from '@/App';
 import {
   Sidebar,
@@ -16,7 +17,7 @@ import { getRandomIcon } from '@/lib/utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Shuffle } from 'lucide-react';
 
-const COLUMNS = 4; // TODO: update value to be responsive
+const COLUMNS = 4;
 
 export function LeftSidebar() {
   const { icon, setIcon } = useContext(IconContext);
@@ -68,6 +69,9 @@ export function LeftSidebar() {
           >
             <Shuffle />
           </Button>
+        </SidebarGroup>
+        <SidebarGroup>
+          <LastIconsSaved />
         </SidebarGroup>
         <SidebarGroup className="p-0 flex-1">
           <CollapsibleComponent
