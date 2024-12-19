@@ -1,4 +1,4 @@
-import { Fragment, useContext, useMemo, useRef, useState } from 'react';
+import { Fragment, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { CollapsibleComponent } from './Collapsible';
@@ -26,6 +26,7 @@ export function LeftSidebar() {
   const parentRef = useRef<HTMLDivElement>(null);
   const [iconSearch, setIconSearch] = useState('');
   const [renderIcons, setRenderIcons] = useState(true);
+  const [lastIcons, setLastIcons] = useState<any[]>([]);
 
   const filteredIcons = Object.entries(icons).filter(([key]) => key.toLowerCase().includes(iconSearch.toLowerCase()));
 
@@ -34,7 +35,12 @@ export function LeftSidebar() {
     [filteredIcons],
   );
 
-  console.log({ open });
+  useEffect(() => {
+    const savedIcons = localStorage.getItem('lastIcons');
+    if (savedIcons) {
+      setLastIcons(JSON.parse(savedIcons));
+    }
+  }, []);
 
   const rowVirtualizer = useVirtualizer({
     count: rows.length,
@@ -71,7 +77,7 @@ export function LeftSidebar() {
           </Button>
         </SidebarGroup>
         <SidebarGroup>
-          <LastIconsSaved />
+          <LastIconsSaved lastIcons={lastIcons} />
         </SidebarGroup>
         <SidebarGroup className="p-0 flex-1">
           <CollapsibleComponent
@@ -100,8 +106,6 @@ export function LeftSidebar() {
                       className="grid grid-cols-[repeat(4,1fr)] gap-2"
                     >
                       {rows[row.index].map((IconComponent, index) => {
-                        // const IconComponent = rows[row.index][index] ?? null;
-
                         if (!IconComponent) return null;
 
                         return (

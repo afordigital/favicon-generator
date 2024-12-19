@@ -23,7 +23,12 @@ export const Canvas = () => {
         <defs>
           <filter id="noiseFilter">
             <feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="2" result="noise" />
-            <feColorMatrix in="noise" type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0" result="grayscaleNoise" />
+            <feColorMatrix
+              in="noise"
+              type="matrix"
+              values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0"
+              result="grayscaleNoise"
+            />
             <feComponentTransfer in="grayscaleNoise" result="thresholdedNoise">
               <feFuncR type="discrete" tableValues="0 1" />
               <feFuncG type="discrete" tableValues="0 1" />
@@ -36,13 +41,7 @@ export const Canvas = () => {
           </filter>
 
           <mask id="roundMask">
-            <rect
-              width={CANVAS_SIZE}
-              height={CANVAS_SIZE}
-              fill="white"
-              rx={icon.radius}
-              ry={icon.radius}
-            />
+            <rect width={CANVAS_SIZE} height={CANVAS_SIZE} fill="white" rx={icon.radius} ry={icon.radius} />
           </mask>
         </defs>
 

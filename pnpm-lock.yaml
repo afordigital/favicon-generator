@@ -44,6 +44,9 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  html-to-image:
+    specifier: ^1.11.11
+    version: 1.11.11
   lucide-react:
     specifier: ^0.462.0
     version: 0.462.0(react@18.3.1)
@@ -2325,6 +2328,10 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       function-bind: 1.1.2
+
+  /html-to-image@1.11.11:
+    resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
+    dev: false
 
   /ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}

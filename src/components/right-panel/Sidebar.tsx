@@ -9,7 +9,7 @@ import { downloadSvg } from '@/lib/dom';
 import { toPng } from 'html-to-image';
 
 export function RightSidebar() {
-  const { svgElement } = useContext(IconContext);
+  const { svgElement, icon } = useContext(IconContext);
 
   const downloadAsPng = async () => {
     if (!svgElement) return;
@@ -32,6 +32,8 @@ export function RightSidebar() {
                   variant="outline"
                   className="flex-1"
                   onClick={() => {
+                    const storedIcons = localStorage.getItem('lastIcons') ?? '[]';
+                    localStorage.setItem('lastIcons', JSON.stringify([...JSON.parse(storedIcons), icon]));
                     if (!svgElement) return;
                     downloadSvg(svgElement);
                   }}
@@ -50,7 +52,7 @@ export function RightSidebar() {
                 <HandleIcon />
               </CollapsibleComponent>
               <CollapsibleComponent title="Help">
-                <p>Hola</p>
+                <p>Sálvame de comuafor por favor</p>
               </CollapsibleComponent>
             </SidebarMenu>
           </SidebarGroupContent>

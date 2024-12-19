@@ -1,8 +1,10 @@
-import { createContext, useState } from "react";
-import Layout from "./layouts/Layout";
-import { icons } from "./lib/icons";
-import { Canvas } from "./components/middle-canvas/Canvas";
-import { useHistoryState } from "@uidotdev/usehooks";
+import { createContext, useState } from 'react';
+import type { SVGProps } from 'react';
+import { Canvas } from './components/middle-canvas/Canvas';
+import { CanvasLayout } from './components/middle-canvas/CanvasLayout';
+import Layout from './layouts/Layout';
+import { icons } from './lib/icons';
+import { useHistoryState } from '@uidotdev/usehooks';
 
 type ContextType = {
   icon: IconProps;
@@ -16,17 +18,17 @@ type ContextType = {
 };
 
 const DEFAULT_ICON: IconProps = {
-  bgColor: "#3c495d",
-  bgColorType: "Solid",
+  bgColor: '#3c495d',
+  bgColorType: 'Solid',
   angle: 0,
   radius: 32,
   strokeWidth: 2,
-  strokeColor: "#ffffff",
+  strokeColor: '#ffffff',
   noiseTexture: false,
   noiseOpacity: 0,
-  iconName: "Bike",
-  iconSize: undefined,
-  iconColor: "#ffffff",
+  iconName: 'Bike',
+  iconSize: 400,
+  iconColor: '#ffffff',
   xOffset: 0,
   yOffset: 0,
 };
@@ -42,12 +44,9 @@ export const IconContext = createContext<ContextType>({
   setSvgElement: () => {},
 });
 
-import type { SVGProps } from "react";
-import { CanvasLayout } from "./components/middle-canvas/CanvasLayout";
-
 export interface IconProps extends SVGProps<SVGSVGElement> {
   bgColor: string;
-  bgColorType: "Solid" | "LinearGradient" | "RadialGradient";
+  bgColorType: 'Solid' | 'LinearGradient' | 'RadialGradient';
   angle: number;
   radius: number;
   strokeWidth: number;
