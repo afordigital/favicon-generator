@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --zoom: 1;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   font-synthesis: none;
@@ -44,4 +45,8 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+.zoom {
+  transform: scale(var(--zoom));
 }
