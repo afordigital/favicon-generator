@@ -5,5 +5,6 @@ declare module "react" {
     "--sidebar-width"?: string;
     "--sidebar-width-mobile"?: string;
     "--bgColor"?: string;
+    "--zoom"?: number;
   }
 }
