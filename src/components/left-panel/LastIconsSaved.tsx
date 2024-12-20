@@ -15,7 +15,7 @@ export const LastIconsSaved = () => {
   return (
     <CollapsibleComponent title="Last Icons">
       <section>
-        {lastIcons.map((icon) => (
+        {lastIcons.map(() => (
           <></>
         ))}
       </section>
