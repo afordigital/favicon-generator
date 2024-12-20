@@ -7,16 +7,16 @@ export const HandleIcon = () => {
 
   return (
     <section className="flex flex-col gap-4 mt-4">
-      <label htmlFor="iconColor" className="flex items-center justify-between">
+      <label htmlFor="color" className="flex items-center justify-between">
         Color del icono
         <Input
-          id="iconColor"
+          id="color"
           onChange={(event) => {
-            setIcon({ ...icon, iconColor: event.target.value });
+            setIcon({ ...icon, color: event.target.value });
           }}
           className="max-w-[200px]"
           type="color"
-          value={icon.iconColor}
+          value={icon.color}
         />
       </label>
       <label htmlFor="iconSize" className="flex items-center justify-between">
