@@ -1,8 +1,10 @@
-import { createContext, useState } from "react";
-import Layout from "./layouts/Layout";
-import { icons } from "./lib/icons";
-import { Canvas } from "./components/middle-canvas/Canvas";
-import { useHistoryState } from "@uidotdev/usehooks";
+import { createContext, useState } from 'react';
+import type { SVGProps } from 'react';
+import { Canvas } from './components/middle-canvas/Canvas';
+import { CanvasLayout } from './components/middle-canvas/CanvasLayout';
+import Layout from './layouts/Layout';
+import { icons } from './lib/icons';
+import { useHistoryState } from '@uidotdev/usehooks';
 
 type ContextType = {
   icon: IconProps;
@@ -16,38 +18,40 @@ type ContextType = {
 };
 
 const DEFAULT_ICON: IconProps = {
-  bgColor: "#3c495d",
-  bgColorType: "Solid",
+  primaryBgColor: "#3c495d",
+  secondaryBgColor: "#3c495d",
+  radialGlare: false,
+  bgColorType: "RadialGradient",
   angle: 0,
   radius: 32,
   strokeWidth: 2,
-  strokeColor: "#ffffff",
+  strokeColor: '#ffffff',
   noiseTexture: false,
   noiseOpacity: 0,
   iconName: "Bike",
-  iconSize: undefined,
-  iconColor: "#ffffff",
+  iconSize: 400,
+  color: '#ffffff',
   xOffset: 0,
   yOffset: 0,
 };
 
 export const IconContext = createContext<ContextType>({
   icon: DEFAULT_ICON,
-  setIcon: () => {},
-  undo: () => {},
-  redo: () => {},
+  setIcon: () => { },
+  undo: () => { },
+  redo: () => { },
   canUndo: false,
   canRedo: false,
   svgElement: null,
-  setSvgElement: () => {},
+  setSvgElement: () => { },
 });
 
-import type { SVGProps } from "react";
-import { CanvasLayout } from "./components/middle-canvas/CanvasLayout";
-
+export type BgColorType = "LinearGradient" | "RadialGradient" | "Solid";
 export interface IconProps extends SVGProps<SVGSVGElement> {
-  bgColor: string;
-  bgColorType: "Solid" | "LinearGradient" | "RadialGradient";
+  primaryBgColor: string;
+  secondaryBgColor: string;
+  bgColorType: BgColorType;
+  radialGlare: boolean;
   angle: number;
   radius: number;
   strokeWidth: number;
@@ -55,7 +59,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
   noiseTexture: boolean;
   noiseOpacity: number;
   iconName: keyof typeof icons;
-  iconColor: string;
+  color: string;
   iconSize?: number;
   xOffset?: number;
   yOffset?: number;
