@@ -20,9 +20,12 @@ importers:
       '@radix-ui/react-label':
         specifier: ^2.1.0
         version: 2.1.1(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+<<<<<<< HEAD
+=======
       '@radix-ui/react-select':
         specifier: ^2.1.4
         version: 2.1.4(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
       '@radix-ui/react-separator':
         specifier: ^1.1.0
         version: 1.1.1(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -35,9 +38,12 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.4
         version: 1.1.6(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+<<<<<<< HEAD
+=======
       '@tanstack/react-virtual':
         specifier: ^3.11.2
         version: 3.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
       '@uidotdev/usehooks':
         specifier: ^2.4.1
         version: 2.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -50,12 +56,21 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+<<<<<<< HEAD
+      lucide-react:
+        specifier: ^0.462.0
+        version: 0.462.0(react@18.3.1)
+      pnpm:
+        specifier: ^9.15.0
+        version: 9.15.0
+=======
       html-to-image:
         specifier: ^1.11.11
         version: 1.11.11
       lucide-react:
         specifier: ^0.462.0
         version: 0.462.0(react@18.3.1)
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -476,9 +491,12 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
+<<<<<<< HEAD
+=======
   '@radix-ui/number@1.1.0':
     resolution: {integrity: sha512-V3gRzhVNU1ldS5XhAPTom1fOIo4ccrjjJgmE+LI2h/WaFpHmx0MQApT+KZHnx8abG6Avtfcz4WoEciMnpFT3HQ==}
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   '@radix-ui/primitive@1.1.1':
     resolution: {integrity: sha512-SJ31y+Q/zAyShtXJc8x83i9TYdbAfHZ++tUZnvjJJqFjzsdUnKsxPL6IEtBlxKkU7yzer//GQtZSV4GbldL3YA==}
 
@@ -683,6 +701,8 @@ packages:
       '@types/react-dom':
         optional: true
 
+<<<<<<< HEAD
+=======
   '@radix-ui/react-select@2.1.4':
     resolution: {integrity: sha512-pOkb2u8KgO47j/h7AylCj7dJsm69BXcjkrvTqMptFqsE2i0p8lHkfgneXKjAgPzBMivnoMyt8o4KiV4wYzDdyQ==}
     peerDependencies:
@@ -696,6 +716,7 @@ packages:
       '@types/react-dom':
         optional: true
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   '@radix-ui/react-separator@1.1.1':
     resolution: {integrity: sha512-RRiNRSrD8iUiXriq/Y5n4/3iE8HzqgLHsusUSg5jVpU2+3tqcUFPJXHDymwEypunc2sWxDUS3UC+rkZRlHedsw==}
     peerDependencies:
@@ -993,6 +1014,8 @@ packages:
   '@swc/types@0.1.17':
     resolution: {integrity: sha512-V5gRru+aD8YVyCOMAjMpWR1Ui577DD5KSJsHP8RAxopAH22jFz6GZd/qxqjO6MJHQhcsjvjOFXyDhyLQUnMveQ==}
 
+<<<<<<< HEAD
+=======
   '@tanstack/react-virtual@3.11.2':
     resolution: {integrity: sha512-OuFzMXPF4+xZgx8UzJha0AieuMihhhaWG0tCqpp6tDzlFwOmNBPYMuLOtMJ1Tr4pXLHmgjcWhG6RlknY2oNTdQ==}
     peerDependencies:
@@ -1002,6 +1025,7 @@ packages:
   '@tanstack/virtual-core@3.11.2':
     resolution: {integrity: sha512-vTtpNt7mKCiZ1pwU9hfKPhpdVO2sVzFQsxoVBGtOSHxlrRRzYr8iQ2TlwbAcRYCcEiZ9ECAM8kBzH0v2+VzfKw==}
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
 
@@ -1453,9 +1477,12 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
+<<<<<<< HEAD
+=======
   html-to-image@1.11.11:
     resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
@@ -1734,6 +1761,14 @@ packages:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
 
+<<<<<<< HEAD
+  pnpm@9.15.0:
+    resolution: {integrity: sha512-duI3l2CkMo7EQVgVvNZije5yevN3mqpMkU45RBVsQpmSGon5djge4QfUHxLPpLZmgcqccY8GaPoIMe1MbYulbA==}
+    engines: {node: '>=18.12'}
+    hasBin: true
+
+=======
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   postcss-import@15.1.0:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
@@ -2456,8 +2491,11 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
+<<<<<<< HEAD
+=======
   '@radix-ui/number@1.1.0': {}
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   '@radix-ui/primitive@1.1.1': {}
 
   '@radix-ui/react-accordion@1.2.2(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
@@ -2647,6 +2685,8 @@ snapshots:
       '@types/react': 18.3.17
       '@types/react-dom': 18.3.5(@types/react@18.3.17)
 
+<<<<<<< HEAD
+=======
   '@radix-ui/react-select@2.1.4(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/number': 1.1.0
@@ -2676,6 +2716,7 @@ snapshots:
       '@types/react': 18.3.17
       '@types/react-dom': 18.3.5(@types/react@18.3.17)
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   '@radix-ui/react-separator@1.1.1(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-primitive': 2.0.1(@types/react-dom@18.3.5(@types/react@18.3.17))(@types/react@18.3.17)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2893,6 +2934,8 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
+<<<<<<< HEAD
+=======
   '@tanstack/react-virtual@3.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@tanstack/virtual-core': 3.11.2
@@ -2901,6 +2944,7 @@ snapshots:
 
   '@tanstack/virtual-core@3.11.2': {}
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.26.3
@@ -3404,8 +3448,11 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+<<<<<<< HEAD
+=======
   html-to-image@1.11.11: {}
 
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   ignore@5.3.2: {}
 
   import-fresh@3.3.0:
@@ -3727,6 +3774,11 @@ snapshots:
 
   pirates@4.0.6: {}
 
+<<<<<<< HEAD
+  pnpm@9.15.0: {}
+
+=======
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
   postcss-import@15.1.0(postcss@8.4.49):
     dependencies:
       postcss: 8.4.49

@@ -52,7 +52,11 @@ export function RightSidebar() {
                 <HandleIcon />
               </CollapsibleComponent>
               <CollapsibleComponent title="Help">
+<<<<<<< HEAD
+                <p>Tronchos</p>
+=======
                 <p>Sálvame de comuafor por favor</p>
+>>>>>>> 2aa0ed4f7ccc2520045e73b09d5c94b9964d04e8
               </CollapsibleComponent>
             </SidebarMenu>
           </SidebarGroupContent>
