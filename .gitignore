@@ -15,7 +15,6 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 package-lock.json
-package.json
 !.vscode/extensions.json
 .idea
 .DS_Store
