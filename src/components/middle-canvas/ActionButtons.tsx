@@ -1,13 +1,13 @@
-import { IconContext } from "@/App";
-import { useContext } from "react";
-import { Button } from "../ui/button";
-import { Undo, Redo } from "lucide-react";
+import { useContext } from 'react';
+import { Button } from '../ui/button';
+import { IconContext } from '@/App';
+import { Redo, Undo } from 'lucide-react';
 
 export const ActionButtons = () => {
   const { undo, redo, canUndo, canRedo } = useContext(IconContext);
 
   return (
-    <div className="flex gap-4 mb-10 absolute top-8 left-[%50] z-50">
+    <div className="flex gap-4">
       <Button
         className="px-6 py-2 border-2 border-white border-solid hover:bg-neutral-800"
         onClick={undo}

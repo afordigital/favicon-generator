@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react";
-import { ActionButtons } from "./ActionButtons";
+import { useEffect, useState } from 'react';
 
 export const CanvasLayout = ({ children }: { children: React.ReactNode }) => {
   const [zoom, setZoom] = useState(1.0);
   useEffect(() => {
-    document.addEventListener('wheel', function(event) {
-      if (event.ctrlKey) {
-        event.preventDefault();
-        const delta = event.deltaY;
-        if (delta < 0) {
-          setZoom(zoom => zoom - 0.01)
-        } else {
-          setZoom(zoom => zoom + 0.01)
+    document.addEventListener(
+      'wheel',
+      function (event) {
+        if (event.ctrlKey) {
+          event.preventDefault();
+          const delta = event.deltaY;
+          if (delta < 0) {
+            setZoom((zoom) => zoom - 0.01);
+          } else {
+            setZoom((zoom) => zoom + 0.01);
+          }
         }
-      }
-    }, { passive: false });
-  }, [])
+      },
+      { passive: false },
+    );
+  }, []);
   return (
     <section className="flex flex-col items-center justify-center w-full h-full">
-      <ActionButtons />
       <article
         style={{
           '--zoom': zoom,

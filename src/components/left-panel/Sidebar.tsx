@@ -77,7 +77,7 @@ export function LeftSidebar() {
           </Button>
         </SidebarGroup>
         <SidebarGroup>
-          <LastIconsSaved lastIcons={lastIcons} />
+          <LastIconsSaved lastIcons={lastIcons} setLastIcons={setLastIcons} />
         </SidebarGroup>
         <SidebarGroup className="p-0 flex-1">
           <CollapsibleComponent

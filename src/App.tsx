@@ -18,17 +18,18 @@ type ContextType = {
 };
 
 const DEFAULT_ICON: IconProps = {
-  primaryBgColor: "#3c495d",
-  secondaryBgColor: "#3c495d",
+  id: crypto.randomUUID(),
+  primaryBgColor: '#3c495d',
+  secondaryBgColor: '#3c495d',
   radialGlare: false,
-  bgColorType: "RadialGradient",
+  bgColorType: 'RadialGradient',
   angle: 0,
   radius: 32,
   strokeWidth: 2,
   strokeColor: '#ffffff',
   noiseTexture: false,
   noiseOpacity: 0,
-  iconName: "Bike",
+  iconName: 'Bike',
   iconSize: 400,
   color: '#ffffff',
   xOffset: 0,
@@ -37,17 +38,18 @@ const DEFAULT_ICON: IconProps = {
 
 export const IconContext = createContext<ContextType>({
   icon: DEFAULT_ICON,
-  setIcon: () => { },
-  undo: () => { },
-  redo: () => { },
+  setIcon: () => {},
+  undo: () => {},
+  redo: () => {},
   canUndo: false,
   canRedo: false,
   svgElement: null,
-  setSvgElement: () => { },
+  setSvgElement: () => {},
 });
 
-export type BgColorType = "LinearGradient" | "RadialGradient" | "Solid";
+export type BgColorType = 'LinearGradient' | 'RadialGradient' | 'Solid';
 export interface IconProps extends SVGProps<SVGSVGElement> {
+  id: string;
   primaryBgColor: string;
   secondaryBgColor: string;
   bgColorType: BgColorType;
