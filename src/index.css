@@ -13,10 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  height: 100vh;
-}
-
 @layer base {
   :root {
     --sidebar-background: 0 0% 98%;

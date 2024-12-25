@@ -11,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col w-full text-white h-screen">
       <Header />
-      <main className="flex-grow grid grid-cols-[auto,1fr,auto] overflow-hidden w-full justify-center">
+      <main className="grid grid-cols-[auto,1fr,auto] overflow-hidden w-full justify-center">
         <SidebarProvider>
           <LeftSidebar />
           <SidebarTrigger className="border mt-2 rounded-[4px] border-solid" />
