@@ -1,9 +1,8 @@
-import { IconContext } from "@/App";
-import { useContext } from "react";
-import { Input } from "../ui/input";
+import { Input } from '../ui/input';
+import { useIconContext } from '@/context/useIconContext';
 
 export const HandleIcon = () => {
-  const { icon, setIcon } = useContext(IconContext);
+  const { icon, setIcon } = useIconContext();
 
   return (
     <section className="flex flex-col gap-4 mt-4">
@@ -26,9 +25,7 @@ export const HandleIcon = () => {
           onChange={(event) => {
             setIcon({
               ...icon,
-              iconSize: event.target.value
-                ? Number(event.target.value)
-                : undefined,
+              iconSize: event.target.value ? Number(event.target.value) : undefined,
             });
           }}
           className="max-w-[200px]"
@@ -43,9 +40,7 @@ export const HandleIcon = () => {
           onChange={(event) => {
             setIcon({
               ...icon,
-              xOffset: event.target.value
-                ? Number(event.target.value)
-                : undefined,
+              xOffset: event.target.value ? Number(event.target.value) : undefined,
             });
           }}
           className="max-w-[200px]"
@@ -60,9 +55,7 @@ export const HandleIcon = () => {
           onChange={(event) => {
             setIcon({
               ...icon,
-              yOffset: event.target.value
-                ? Number(event.target.value)
-                : undefined,
+              yOffset: event.target.value ? Number(event.target.value) : undefined,
             });
           }}
           className="max-w-[200px]"

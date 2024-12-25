@@ -1,9 +1,9 @@
-import { Fragment, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { CollapsibleComponent } from './Collapsible';
 import { LastIconsSaved } from './LastIconsSaved';
-import { IconContext } from '@/App';
+import { IconProps } from '@/App';
 import {
   Sidebar,
   SidebarContent,
@@ -12,6 +12,7 @@ import {
   SidebarMenu,
   useSidebar,
 } from '@/components/ui/sidebar';
+import { useIconContext } from '@/context/useIconContext';
 import { generateIconsGrid, icons, isLucideIcon } from '@/lib/icons';
 import { getRandomIcon } from '@/lib/utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
@@ -20,13 +21,13 @@ import { Shuffle } from 'lucide-react';
 const COLUMNS = 4;
 
 export function LeftSidebar() {
-  const { icon, setIcon } = useContext(IconContext);
+  const { icon, setIcon } = useIconContext();
   const { open } = useSidebar();
 
   const parentRef = useRef<HTMLDivElement>(null);
   const [iconSearch, setIconSearch] = useState('');
   const [renderIcons, setRenderIcons] = useState(true);
-  const [lastIcons, setLastIcons] = useState<any[]>([]);
+  const [lastIcons, setLastIcons] = useState<IconProps[]>([]);
 
   const filteredIcons = Object.entries(icons).filter(([key]) => key.toLowerCase().includes(iconSearch.toLowerCase()));
 
@@ -51,15 +52,18 @@ export function LeftSidebar() {
   });
 
   const items = rowVirtualizer.getVirtualItems();
-
   return (
-    <Sidebar className="border-gray-800" variant="floating">
+    <Sidebar
+      side="left"
+      className="border-gray-800 h-full"
+      style={{ paddingTop: 'calc(var(--header-height) + 0.5rem)' }}
+      variant="floating"
+    >
       <SidebarContent>
-        <SidebarGroup className="flex flex-row gap-2 sticky top-0 bg-[hsl(var(--sidebar-background))] z-10">
+        <SidebarGroup className="flex flex-row gap-2 sticky top-0 z-10">
           <Input
             type="search"
             placeholder="Search icons"
-            className="rounded-[4px]"
             value={iconSearch}
             onChange={(event) => {
               setIconSearch(event.target.value);
@@ -67,7 +71,6 @@ export function LeftSidebar() {
           />
           <Button
             variant="outline"
-            className="rounded-[4px]"
             onClick={() => {
               const randomIcon = getRandomIcon();
               setIcon({ ...icon, iconName: randomIcon });
@@ -77,7 +80,7 @@ export function LeftSidebar() {
           </Button>
         </SidebarGroup>
         <SidebarGroup>
-          <LastIconsSaved lastIcons={lastIcons} />
+          <LastIconsSaved lastIcons={lastIcons} setLastIcons={setLastIcons} />
         </SidebarGroup>
         <SidebarGroup className="p-0 flex-1">
           <CollapsibleComponent

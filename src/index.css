@@ -4,12 +4,17 @@
 
 :root {
   --zoom: 1;
+  --header-height: 0px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  height: 100vh;
 }
 
 @layer base {

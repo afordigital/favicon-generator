@@ -1,28 +1,28 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '../icon';
-import { IconContext } from '@/App';
+import { useIconContext } from '@/context/useIconContext';
 
 const CANVAS_SIZE = 512;
 
 export const Canvas = () => {
-  const { icon, setSvgElement } = useContext(IconContext);
-  const [noiseImg, setNoiseImg] = useState<string | null>(null)
+  const { icon, setSvgElement } = useIconContext();
+  const [noiseImg, setNoiseImg] = useState<string | null>(null);
 
   const ICON_X = icon.iconSize ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.xOffset ?? 0) : 0 + (icon.xOffset ?? 0);
   const ICON_Y = icon.iconSize ? CANVAS_SIZE / 2 - icon.iconSize / 2 + (icon.yOffset ?? 0) : 0 + (icon.yOffset ?? 0);
 
   // note: we must inline the image otherwise the download will ignore it
   useEffect(() => {
-    (async function() {
+    (async function () {
       const res = await fetch('/noise.png');
       const blob = await res.blob();
       const reader = new FileReader();
-      reader.readAsDataURL(blob)
+      reader.readAsDataURL(blob);
       reader.onload = () => {
-        setNoiseImg(reader.result as string)
-      }
-    })()
-  }, [])
+        setNoiseImg(reader.result as string);
+      };
+    })();
+  }, []);
 
   return (
     <>
@@ -41,11 +41,17 @@ export const Canvas = () => {
           height={CANVAS_SIZE}
           rx={icon.radius}
           ry={icon.radius}
-          fill={icon.bgColorType === 'LinearGradient' ? 'url(#ra)' : icon.bgColorType === 'RadialGradient' ? 'url(#rb)' : icon.primaryBgColor}
+          fill={
+            icon.bgColorType === 'LinearGradient'
+              ? 'url(#ra)'
+              : icon.bgColorType === 'RadialGradient'
+                ? 'url(#rb)'
+                : icon.primaryBgColor
+          }
           stroke="#FFFFFF"
-          stroke-width="0"
-          stroke-opacity="100%"
-          paint-order="stroke"
+          strokeWidth="0"
+          strokeOpacity="100%"
+          paintOrder="stroke"
         ></rect>
         {icon.radialGlare ? (
           <rect
@@ -65,7 +71,8 @@ export const Canvas = () => {
             width={CANVAS_SIZE}
             height={CANVAS_SIZE}
             clip-path="url(#clip)"
-            opacity={`${icon.noiseOpacity}%`}></image>
+            opacity={`${icon.noiseOpacity}%`}
+          ></image>
         ) : null}
         <clipPath id="clip">
           <use xlinkHref="#r9"></use>
@@ -79,19 +86,12 @@ export const Canvas = () => {
               transformOrigin: 'center center 0px',
             }}
           >
-            <stop stop-color={icon.primaryBgColor}></stop>
-            <stop offset="1" stop-color={icon.secondaryBgColor}></stop>
+            <stop stopColor={icon.primaryBgColor}></stop>
+            <stop offset="1" stopColor={icon.secondaryBgColor}></stop>
           </linearGradient>
-          <radialGradient
-            id="rb"
-            cx="50%"
-            cy="50%"
-            r="100%"
-            fx="50%"
-            fy="0%"
-            gradientUnits="objectBoundingBox">
-            <stop stop-color={icon.primaryBgColor}></stop>
-            <stop offset="1" stop-color={icon.secondaryBgColor}></stop>
+          <radialGradient id="rb" cx="50%" cy="50%" r="100%" fx="50%" fy="0%" gradientUnits="objectBoundingBox">
+            <stop stopColor={icon.primaryBgColor}></stop>
+            <stop offset="1" stopColor={icon.secondaryBgColor}></stop>
           </radialGradient>
           <radialGradient
             id="rc"
@@ -101,8 +101,8 @@ export const Canvas = () => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(256) rotate(90) scale(512)"
           >
-            <stop stop-color="white"></stop>
-            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+            <stop stopColor="white"></stop>
+            <stop offset="1" stopColor="white" stopOpacity="0"></stop>
           </radialGradient>
         </defs>
         <Icon
