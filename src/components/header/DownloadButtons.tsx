@@ -6,10 +6,9 @@ export const DownloadButtons = () => {
   const { svgElement, icon } = useIconContext();
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center justify-end gap-2">
       <Button
         variant="outline"
-        className="flex-1"
         onClick={() => {
           const storedIcons = localStorage.getItem('lastIcons') ?? '[]';
           localStorage.setItem('lastIcons', JSON.stringify([...JSON.parse(storedIcons), icon]));
@@ -19,7 +18,6 @@ export const DownloadButtons = () => {
       </Button>
       <Button
         variant="outline"
-        className="flex-1"
         onClick={() => {
           if (!svgElement) return;
           downloadSvg(svgElement);
@@ -30,7 +28,6 @@ export const DownloadButtons = () => {
       </Button>
       <Button
         variant="outline"
-        className="flex-1"
         onClick={() => {
           if (!svgElement) return;
           downloadAsPng(svgElement);
