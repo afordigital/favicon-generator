@@ -15,9 +15,13 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="px-3 py-2 bg-[#18181B] border-1 border-b border-zinc-800 text-white w-screen z-20 flex justify-between p-6"
+      className="p-2 bg-[#18181B] border-1 border-b border-zinc-800 text-white w-screen z-20 grid grid-cols-3 items-center justify-between "
     >
-      <p>Mykonos</p>
+      <div>
+        <h1 className="font-bold tracking-wide text-xl flex items-center gap-1.5">
+          <span>🐀</span>Mykonos
+        </h1>
+      </div>
       <ActionButtons />
       <DownloadButtons />
     </header>

@@ -6,7 +6,7 @@ export const DownloadButtons = () => {
   const { svgElement, icon } = useIconContext();
 
   return (
-    <div className="flex gap-4">
+    <div className="flex items-center gap-4">
       <Button
         variant="outline"
         className="flex-1"

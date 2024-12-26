@@ -6,7 +6,7 @@ export const ActionButtons = () => {
   const { undo, redo, canUndo, canRedo } = useIconContext();
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 justify-center">
       <Button
         className="px-6 py-2 border-2 border-white text-white border-solid hover:bg-neutral-800"
         onClick={undo}
