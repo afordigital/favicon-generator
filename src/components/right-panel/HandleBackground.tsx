@@ -1,20 +1,17 @@
-import { useMemo } from 'react';
+import { Hex } from '../Hex';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Switch } from '../ui/switch';
 import { BgColorType } from '@/App';
 import { useIconContext } from '@/context/useIconContext';
-import { debounce } from '@/lib/utils';
 
 export const HandleBackground = () => {
   const { icon, setIcon } = useIconContext();
 
-  const debouncedSetIcon = useMemo(() => debounce(setIcon, 150), [setIcon]);
-
   return (
     <section className="flex flex-col gap-4 mt-4">
       <label htmlFor="bgColorType" className="flex items-center justify-between">
-        <p>Fill Type</p>
+        Fill Type
         <Select
           value={icon.bgColorType}
           onValueChange={(value) => setIcon({ ...icon, bgColorType: value as BgColorType })}
@@ -32,27 +29,13 @@ export const HandleBackground = () => {
         </Select>
       </label>
       <label className="flex items-center justify-between">
-        {icon.bgColorType !== 'Solid' ? <p>Primary bg color</p> : <p>Background color</p>}
-        <Input
-          onChange={(event) => {
-            debouncedSetIcon({ ...icon, primaryBgColor: event.target.value });
-          }}
-          className="max-w-[200px]"
-          type="color"
-          value={icon.primaryBgColor}
-        />
+        {icon.bgColorType !== 'Solid' ? 'Primary bg color' : 'Background color'}
+        <Hex keyName="primaryBgColor" />
       </label>
       {icon.bgColorType !== 'Solid' ? (
         <label className="flex items-center justify-between">
-          <p>Secondary bg color</p>
-          <Input
-            onChange={(event) => {
-              debouncedSetIcon({ ...icon, secondaryBgColor: event.target.value });
-            }}
-            className="max-w-[200px]"
-            type="color"
-            value={icon.secondaryBgColor}
-          />
+          Secondary bg color
+          <Hex keyName="secondaryBgColor" />
         </label>
       ) : null}
       <label className="flex items-center justify-between">

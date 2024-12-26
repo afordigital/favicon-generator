@@ -1,3 +1,4 @@
+import { Hex } from '../Hex';
 import { Input } from '../ui/input';
 import { useIconContext } from '@/context/useIconContext';
 
@@ -6,20 +7,12 @@ export const HandleIcon = () => {
 
   return (
     <section className="flex flex-col gap-4 mt-4">
-      <label htmlFor="color" className="flex items-center justify-between">
-        Color del icono
-        <Input
-          id="color"
-          onChange={(event) => {
-            setIcon({ ...icon, color: event.target.value });
-          }}
-          className="max-w-[200px]"
-          type="color"
-          value={icon.color}
-        />
+      <label className="flex items-center justify-between">
+        Icon color
+        <Hex keyName="color" />
       </label>
       <label htmlFor="iconSize" className="flex items-center justify-between">
-        Tamaño del icono
+        Icon size
         <Input
           id="iconSize"
           onChange={(event) => {
@@ -34,7 +27,7 @@ export const HandleIcon = () => {
         />
       </label>
       <label htmlFor="xOffset" className="flex items-center justify-between">
-        Offset en x
+        X Offset
         <Input
           id="xOffset"
           onChange={(event) => {
@@ -49,7 +42,7 @@ export const HandleIcon = () => {
         />
       </label>
       <label htmlFor="yOffset" className="flex items-center justify-between">
-        Offset en y
+        Y Offset
         <Input
           id="yOffset"
           onChange={(event) => {
