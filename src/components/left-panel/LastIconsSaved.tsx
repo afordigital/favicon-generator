@@ -39,6 +39,7 @@ export const LastIconsSaved = ({
           const xOffset = lastIcon.xOffset ?? 0;
           const yOffset = lastIcon.yOffset ?? 0;
 
+
           const ICON_X =
             ((iconSize ? CANVAS_CONTAINER_SIZE / 2 - iconSize / 2 + xOffset : 0 + xOffset) * CANVAS_SIZE) /
             CANVAS_CONTAINER_SIZE;
@@ -73,7 +74,55 @@ export const LastIconsSaved = ({
                     rx={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
                     ry={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
                   />
+            <div
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              className="h-fit w-fit relative"
+            >
+              <button
+                onClick={() => {
+                  setIcon(lastIcon);
+                }}
+              >
+                <svg
+                  ref={setSvgElement}
+                  width={CANVAS_SIZE}
+                  height={CANVAS_SIZE}
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                    width={CANVAS_SIZE}
+                    height={CANVAS_SIZE}
+                    style={{ fill: lastIcon.primaryBgColor }}
+                    rx={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                    ry={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                  />
 
+                  <Icon
+                    x={ICON_X}
+                    y={ICON_Y}
+                    name={lastIcon.iconName}
+                    color={lastIcon.color}
+                    strokeWidth={1}
+                    width={(iconSize * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                    height={(iconSize * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                  />
+                </svg>
+              </button>
+              {hovered && (
+                <Button
+                  onClick={() => {
+                    deleteIcon(lastIcon.iconName);
+                  }}
+                  variant={'outline'}
+                  className="absolute -top-[10px] -right-[20px] bg-white"
+                >
+                  <Trash />
+                </Button>
+              )}
+            </div>
                   <Icon
                     x={ICON_X}
                     y={ICON_Y}
