@@ -1,8 +1,9 @@
-import { useContext, useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import Icon from '../icon';
 import { Button } from '../ui/button';
 import { CollapsibleComponent } from './Collapsible';
-import { IconContext, IconProps } from '@/App';
+import { IconProps } from '@/App';
+import { useIconContext } from '@/context/useIconContext';
 import { Trash } from 'lucide-react';
 
 export const LastIconsSaved = ({
@@ -10,9 +11,9 @@ export const LastIconsSaved = ({
   setLastIcons,
 }: {
   lastIcons: IconProps[];
-  setLastIcons: (lastIcon: IconProps) => void;
+  setLastIcons: Dispatch<SetStateAction<IconProps[]>>;
 }) => {
-  const { setSvgElement, setIcon, icon } = useContext(IconContext);
+  const { setSvgElement, setIcon, icon } = useIconContext();
   const [hovered, setHovered] = useState(false);
 
   const CANVAS_SIZE = 44;
@@ -22,7 +23,7 @@ export const LastIconsSaved = ({
     const storedIcons = localStorage.getItem('lastIcons') ?? '[]';
     localStorage.setItem(
       'lastIcons',
-      JSON.stringify(JSON.parse(storedIcons).filter((icon: IconProps) => icon.iconName !== lastIcons.iconName)),
+      JSON.stringify(JSON.parse(storedIcons).filter((icon: IconProps) => icon.iconName !== name)),
     );
     setLastIcons((prev) => prev.filter((icon) => icon.iconName !== name));
     if (icon.iconName === name) {
@@ -37,6 +38,7 @@ export const LastIconsSaved = ({
           const iconSize = lastIcon.iconSize ?? CANVAS_CONTAINER_SIZE;
           const xOffset = lastIcon.xOffset ?? 0;
           const yOffset = lastIcon.yOffset ?? 0;
+
 
           const ICON_X =
             ((iconSize ? CANVAS_CONTAINER_SIZE / 2 - iconSize / 2 + xOffset : 0 + xOffset) * CANVAS_SIZE) /
@@ -72,7 +74,55 @@ export const LastIconsSaved = ({
                     rx={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
                     ry={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
                   />
+            <div
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              className="h-fit w-fit relative"
+            >
+              <button
+                onClick={() => {
+                  setIcon(lastIcon);
+                }}
+              >
+                <svg
+                  ref={setSvgElement}
+                  width={CANVAS_SIZE}
+                  height={CANVAS_SIZE}
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                    width={CANVAS_SIZE}
+                    height={CANVAS_SIZE}
+                    style={{ fill: lastIcon.primaryBgColor }}
+                    rx={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                    ry={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                  />
 
+                  <Icon
+                    x={ICON_X}
+                    y={ICON_Y}
+                    name={lastIcon.iconName}
+                    color={lastIcon.color}
+                    strokeWidth={1}
+                    width={(iconSize * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                    height={(iconSize * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                  />
+                </svg>
+              </button>
+              {hovered && (
+                <Button
+                  onClick={() => {
+                    deleteIcon(lastIcon.iconName);
+                  }}
+                  variant={'outline'}
+                  className="absolute -top-[10px] -right-[20px] bg-white"
+                >
+                  <Trash />
+                </Button>
+              )}
+            </div>
                   <Icon
                     x={ICON_X}
                     y={ICON_Y}

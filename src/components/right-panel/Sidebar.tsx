@@ -5,7 +5,12 @@ import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu
 
 export function RightSidebar() {
   return (
-    <Sidebar side="right" className="border-gray-800" variant="floating">
+    <Sidebar
+      side="right"
+      className="border-gray-800"
+      style={{ paddingTop: 'calc(var(--header-height) + 0.5rem)' }}
+      variant="floating"
+    >
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>

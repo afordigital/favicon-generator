@@ -1,7 +1,6 @@
-import { Header } from '@/components/header/Header';
+import Header from '@/components/header/Header';
 import { LeftSidebar } from '@/components/left-panel/Sidebar';
 import { RightSidebar } from '@/components/right-panel/Sidebar';
-import { ThemeProvider } from '@/components/theme-provider';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 
 interface LayoutProps {
@@ -10,23 +9,19 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex flex-col gap-4 overflow-hidden">
-        <Header />
-        <section className="relative ">
-          <SidebarProvider>
-            <LeftSidebar />
-            <SidebarTrigger className="text-white mt-2 p-6 border rounded-[4px] border-solid" />
-
-            <SidebarInset className="flex w-full text-white">{children}</SidebarInset>
-
-            <SidebarProvider className="w-fit">
-              <SidebarTrigger className="text-white mt-2 p-6 border rounded-[4px] border-solid" />
-              <RightSidebar />
-            </SidebarProvider>
-          </SidebarProvider>
-        </section>
-      </div>
-    </ThemeProvider>
+    <div className="flex flex-col w-full text-white h-screen">
+      <Header />
+      <main className="grid grid-cols-[auto,1fr,auto] overflow-hidden w-full justify-center">
+        <SidebarProvider>
+          <LeftSidebar />
+          <SidebarTrigger className="border mt-2 rounded-[4px] border-solid" />
+        </SidebarProvider>
+        <SidebarInset className="flex justify-center w-full">{children}</SidebarInset>
+        <SidebarProvider>
+          <SidebarTrigger className="border mt-2 rounded-[4px] border-solid" />
+          <RightSidebar />
+        </SidebarProvider>
+      </main>
+    </div>
   );
 }

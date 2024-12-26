@@ -1,15 +1,14 @@
-import { useContext } from 'react';
 import { Button } from '../ui/button';
-import { IconContext } from '@/App';
+import { useIconContext } from '@/context/useIconContext';
 import { Redo, Undo } from 'lucide-react';
 
 export const ActionButtons = () => {
-  const { undo, redo, canUndo, canRedo } = useContext(IconContext);
+  const { undo, redo, canUndo, canRedo } = useIconContext();
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-2 justify-center">
       <Button
-        className="px-6 py-2 border-2 border-white border-solid hover:bg-neutral-800"
+        className="border-2 border-white text-white border-solid hover:bg-neutral-800"
         onClick={undo}
         variant="outline"
         disabled={!canUndo}
@@ -18,7 +17,7 @@ export const ActionButtons = () => {
         Undo
       </Button>
       <Button
-        className="px-6 py-2 border-2 border-white border-solid hover:bg-neutral-800"
+        className="border-2 text-white border-white border-solid hover:bg-neutral-800"
         onClick={redo}
         variant="outline"
         disabled={!canRedo}

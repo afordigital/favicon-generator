@@ -4,6 +4,7 @@
 
 :root {
   --zoom: 1;
+  --header-height: 0px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   font-synthesis: none;
