@@ -5,8 +5,8 @@ import { useHistoryState } from '@uidotdev/usehooks';
 
 const DEFAULT_ICON: IconProps = {
   id: crypto.randomUUID(),
-  primaryBgColor: '#3c495d',
-  secondaryBgColor: '#3c495d',
+  primaryBgColor: '#7692bc',
+  secondaryBgColor: '#0c1118',
   radialGlare: false,
   bgColorType: 'RadialGradient',
   angle: 0,
