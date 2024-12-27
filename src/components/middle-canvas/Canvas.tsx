@@ -105,15 +105,17 @@ export const Canvas = () => {
             <stop offset="1" stopColor="white" stopOpacity="0"></stop>
           </radialGradient>
         </defs>
-        <Icon
-          x={ICON_X}
-          y={ICON_Y}
-          name={icon.iconName}
-          color={icon.color}
-          strokeWidth={1}
-          width={icon.iconSize}
-          height={icon.iconSize}
-        />
+        <g transform={`rotate(${icon.angle} 0 0)`} style={{ transformOrigin: `${ICON_X + (icon.iconSize ?? 400) / 2}px ${ICON_Y + (icon.iconSize ?? 400) / 2}px` }}>
+          <Icon
+            x={ICON_X}
+            y={ICON_Y}
+            name={icon.iconName}
+            color={icon.color}
+            strokeWidth={1}
+            width={icon.iconSize}
+            height={icon.iconSize}
+          />
+        </g>
       </svg>
     </>
   );

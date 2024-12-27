@@ -26,6 +26,24 @@ export const HandleIcon = () => {
           value={icon.iconSize}
         />
       </label>
+      <label htmlFor="angle" className="flex items-center justify-between">
+        Angle
+        <Input
+          id="angle"
+          onChange={(event) => {
+
+            setIcon({
+              ...icon,
+              angle: event.target.value ? Math.max(-360, Math.min(Number(event.target.value), 360)) : undefined,
+            });
+          }}
+          className="max-w-[200px]"
+          type="number"
+          value={icon.angle}
+          min={-360}
+          max={360}
+        />
+      </label>
       <label htmlFor="xOffset" className="flex items-center justify-between">
         X Offset
         <Input
