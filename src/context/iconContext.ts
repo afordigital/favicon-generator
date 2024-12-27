@@ -1,4 +1,5 @@
 // iconContext.ts
+
 import { createContext, Dispatch, SetStateAction } from 'react';
 import type { IconProps } from '@/App';
 
@@ -12,7 +13,7 @@ type ContextType = {
   svgElement: SVGSVGElement | null;
   setSvgElement: (svgElement: SVGSVGElement | null) => void;
   lastIcons: IconProps[];
-  setLastIcons: Dispatch<SetStateAction<IconProps[]>>
+  setLastIcons: Dispatch<SetStateAction<IconProps[]>>;
 };
 
 // Export the context

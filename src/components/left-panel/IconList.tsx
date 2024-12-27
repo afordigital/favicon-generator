@@ -1,13 +1,12 @@
-import { memo } from "react";
-import { IconProps } from "@/App";
-import { Button } from "@/components/ui/button.tsx";
+import { memo } from 'react';
+import { IconProps } from '@/App';
+import { Button } from '@/components/ui/button.tsx';
 import { icons, isLucideIcon } from '@/lib/icons.ts';
-
 
 type Props = {
   iconSearch: string;
   setIcon: (icon: Partial<IconProps>) => void;
-}
+};
 
 const IconList = ({ iconSearch, setIcon }: Props) => {
   return Object.entries(icons)

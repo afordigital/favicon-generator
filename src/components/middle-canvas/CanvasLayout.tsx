@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-
 export const CanvasLayout = ({ children }: { children: React.ReactNode }) => {
   const [zoom, setZoom] = useState(1.0);
 

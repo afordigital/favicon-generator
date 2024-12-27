@@ -1,7 +1,7 @@
 export const categories = {
-  accessibility: ["Activity", "AlertTriangle", "Bicycle", "Moon"],
-  "accounts & access": ["Airplay", "Search"],
-  animals: ["Anchor", "ArrowDownCircle"],
+  accessibility: ['Activity', 'AlertTriangle', 'Bicycle', 'Moon'],
+  'accounts & access': ['Airplay', 'Search'],
+  animals: ['Anchor', 'ArrowDownCircle'],
   arrows: [],
   brands: [],
   buildings: [],
@@ -10,7 +10,7 @@ export const categories = {
   connectivity: [],
   cursors: [],
   design: [],
-  "coding & development": [],
+  'coding & development': [],
   devices: [],
   emoji: [],
 };

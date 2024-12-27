@@ -1,14 +1,13 @@
-import { icons } from "lucide-react";
-import { ComponentProps } from "react";
+import { ComponentProps } from 'react';
+import { icons } from 'lucide-react';
 
 const Icon = ({
   name,
   ...props
 }: {
   name: keyof typeof icons;
-} & ComponentProps<"svg">) => {
+} & ComponentProps<'svg'>) => {
   const LucideIcon = icons[name];
-
 
   if (!LucideIcon) {
     console.error(`Icon "${name}" not found in lucide-react.`);
