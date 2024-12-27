@@ -1,7 +1,7 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { iconNames, isLucideIcon } from "./icons";
-import { IconProps } from "@/App";
+import { iconNames, isLucideIcon } from './icons';
+import { IconProps } from '@/App';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -26,18 +26,16 @@ const DEFAULT_ICON: IconProps = {
   yOffset: 0,
 };
 
-
 export const getRandomIcon = (): IconProps => {
   const randomIconIndex = Math.floor(Math.random() * iconNames.length);
   const randomIconName = iconNames[randomIconIndex];
-  if (!isLucideIcon(randomIconName)) throw new Error("Unreachable");
+  if (!isLucideIcon(randomIconName)) throw new Error('Unreachable');
 
-  const getRandomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
-  const getRandomNumber = (min: number, max: number) =>
-    Math.floor(Math.random() * (max - min + 1)) + min;
-
-
-    console.log(randomIconName);
+  const getRandomColor = () =>
+    `#${Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, '0')}`;
+  const getRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   return {
     ...DEFAULT_ICON,
@@ -49,12 +47,9 @@ export const getRandomIcon = (): IconProps => {
     iconSize: getRandomNumber(200, 512),
     color: getRandomColor(),
   };
-}
+};
 
-export const debounce = <Fn extends (...args: any[]) => any>(
-  fn: Fn,
-  delay: number
-) => {
+export const debounce = <Fn extends (...args: any[]) => any>(fn: Fn, delay: number) => {
   let timeoutId: number | undefined = undefined;
   return (...args: Parameters<Fn>) => {
     if (timeoutId) {
@@ -63,5 +58,3 @@ export const debounce = <Fn extends (...args: any[]) => any>(
     timeoutId = globalThis.setTimeout(fn, delay, ...args);
   };
 };
-
-

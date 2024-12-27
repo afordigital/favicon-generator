@@ -13,12 +13,12 @@ export const DownloadButtons = () => {
         onClick={() => {
           const newIcon = { ...icon, id: crypto.randomUUID() };
 
-          const storedIcons = localStorage.getItem('lastIcons') ?? '[]';
-          localStorage.setItem('lastIcons', JSON.stringify([...JSON.parse(storedIcons), newIcon]));
+          const storedIcons = JSON.parse(localStorage.getItem('lastIcons') ?? '[]');
+          localStorage.setItem('lastIcons', JSON.stringify([...storedIcons, newIcon]));
           setLastIcons([...lastIcons, newIcon]);
           toast.success({
             text: 'Icon saved successfully!',
-          })
+          });
         }}
       >
         Save Favicon
@@ -30,7 +30,7 @@ export const DownloadButtons = () => {
           downloadSvg(svgElement);
           toast.success({
             text: 'Icon downloaded successfully!',
-          })
+          });
         }}
         disabled={!svgElement}
       >
@@ -43,7 +43,7 @@ export const DownloadButtons = () => {
           downloadAsPng(svgElement);
           toast.success({
             text: 'Icon downloaded successfully!',
-          })
+          });
         }}
         disabled={!svgElement}
       >

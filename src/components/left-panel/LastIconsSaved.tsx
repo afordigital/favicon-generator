@@ -13,7 +13,7 @@ export const LastIconsSaved = ({
   lastIcons: IconProps[];
   setLastIcons: Dispatch<SetStateAction<IconProps[]>>;
 }) => {
-  const { setSvgElement, setIcon, icon } = useIconContext();
+  const { setIcon, icon } = useIconContext();
   const [hoveredIconId, setHoveredIconId] = useState<string | null>(null);
 
 
@@ -33,15 +33,8 @@ export const LastIconsSaved = ({
   };
 
 
-
   return (
     <CollapsibleComponent title="My Icons">
-      {lastIcons.length === 0 ? null : (
-
-        <></>
-
-      )
-      }
       <div className="grid mt-4 grid-cols-[repeat(6,1fr)] gap-2">
         {lastIcons.map((lastIcon) => {
           const iconSize = lastIcon.iconSize ?? CANVAS_CONTAINER_SIZE;
@@ -71,7 +64,6 @@ export const LastIconsSaved = ({
                 }}
               >
                 <svg
-                  ref={setSvgElement}
                   width={CANVAS_SIZE}
                   height={CANVAS_SIZE}
                   fill="none"
@@ -82,8 +74,8 @@ export const LastIconsSaved = ({
                     width={CANVAS_SIZE}
                     height={CANVAS_SIZE}
                     style={{ fill: lastIcon.primaryBgColor }}
-                    rx={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
-                    ry={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                    rx={((lastIcon.radius ?? 0) * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                    ry={((lastIcon.radius ?? 0) * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
                   />
                   <div
                     onMouseEnter={() => setHoveredIconId(lastIcon.id)}
@@ -96,7 +88,6 @@ export const LastIconsSaved = ({
                       }}
                     >
                       <svg
-                        ref={setSvgElement}
                         width={CANVAS_SIZE}
                         height={CANVAS_SIZE}
                         fill="none"
@@ -107,8 +98,8 @@ export const LastIconsSaved = ({
                           width={CANVAS_SIZE}
                           height={CANVAS_SIZE}
                           style={{ fill: lastIcon.primaryBgColor }}
-                          rx={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
-                          ry={(lastIcon.radius * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                          rx={((lastIcon.radius ?? 0) * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
+                          ry={((lastIcon.radius ?? 0) * CANVAS_SIZE) / CANVAS_CONTAINER_SIZE}
                         />
 
                         <Icon
