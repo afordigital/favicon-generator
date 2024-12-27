@@ -12,12 +12,14 @@ export default function Layout({ children }: LayoutProps) {
     <div className="flex flex-col w-full text-white h-screen">
       <Header />
       <main className="grid grid-cols-[auto,1fr,auto] overflow-hidden w-full justify-center">
-        <SidebarProvider>
+        <SidebarProvider className="gap-2">
           <LeftSidebar />
           <SidebarTrigger className="border mt-2 rounded-[4px] border-solid" />
         </SidebarProvider>
+
         <SidebarInset className="flex justify-center w-full">{children}</SidebarInset>
-        <SidebarProvider>
+
+        <SidebarProvider className="gap-2">
           <SidebarTrigger className="border mt-2 rounded-[4px] border-solid" />
           <RightSidebar />
         </SidebarProvider>

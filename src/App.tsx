@@ -18,7 +18,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
   strokeWidth: number;
   strokeColor: string;
   noiseTexture: boolean;
-  noiseOpacity: number;
+  noiseOpacity?: number;
   iconName: keyof typeof icons;
   color: string;
   iconSize?: number;
@@ -29,7 +29,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 function App() {
   return (
     <IconProvider>
-      <Toaster theme='dark' />
+      <Toaster theme="dark" />
       <Layout>
         <CanvasLayout>
           <Canvas />
