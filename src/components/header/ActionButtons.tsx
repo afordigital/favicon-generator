@@ -1,17 +1,24 @@
 import { Button } from '../ui/button';
 import { useIconContext } from '@/context/useIconContext';
 import { downloadAsPng, downloadSvg } from '@/lib/dom';
+import { toast } from '@pheralb/toast';
 
 export const DownloadButtons = () => {
-  const { svgElement, icon } = useIconContext();
+  const { svgElement, icon, lastIcons, setLastIcons } = useIconContext();
 
   return (
     <div className="flex items-center justify-end gap-2">
       <Button
         variant="outline"
         onClick={() => {
+          const newIcon = { ...icon, id: crypto.randomUUID() };
+
           const storedIcons = localStorage.getItem('lastIcons') ?? '[]';
-          localStorage.setItem('lastIcons', JSON.stringify([...JSON.parse(storedIcons), icon]));
+          localStorage.setItem('lastIcons', JSON.stringify([...JSON.parse(storedIcons), newIcon]));
+          setLastIcons([...lastIcons, newIcon]);
+          toast.success({
+            text: 'Icon saved successfully!',
+          })
         }}
       >
         Save Favicon
@@ -21,6 +28,9 @@ export const DownloadButtons = () => {
         onClick={() => {
           if (!svgElement) return;
           downloadSvg(svgElement);
+          toast.success({
+            text: 'Icon downloaded successfully!',
+          })
         }}
         disabled={!svgElement}
       >
@@ -31,6 +41,9 @@ export const DownloadButtons = () => {
         onClick={() => {
           if (!svgElement) return;
           downloadAsPng(svgElement);
+          toast.success({
+            text: 'Icon downloaded successfully!',
+          })
         }}
         disabled={!svgElement}
       >

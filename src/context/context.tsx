@@ -24,6 +24,7 @@ const DEFAULT_ICON: IconProps = {
 
 export const IconProvider = ({ children }: { children: ReactNode }) => {
   const [svgElement, setSvgElement] = useState<SVGSVGElement | null>(null);
+  const [lastIcons, setLastIcons] = useState<IconProps[]>([]);
 
   const {
     state: icon,
@@ -53,6 +54,8 @@ export const IconProvider = ({ children }: { children: ReactNode }) => {
         canRedo,
         svgElement,
         setSvgElement,
+        lastIcons,
+        setLastIcons,
       }}
     >
       {children}

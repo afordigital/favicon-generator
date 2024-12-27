@@ -1,6 +1,7 @@
 import twAnimate from 'tailwindcss-animate';
 import type { Config } from 'tailwindcss'
 
+
 const config = {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
@@ -19,6 +20,9 @@ const config = {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        righteous: ['Righteous', 'sans-serif']
+    },
       keyframes: {
         "accordion-down": {
           from: {

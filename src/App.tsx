@@ -4,6 +4,7 @@ import { CanvasLayout } from './components/middle-canvas/CanvasLayout';
 import { IconProvider } from './context/context';
 import Layout from './layouts/Layout';
 import { icons } from './lib/icons';
+import { Toaster } from '@pheralb/toast';
 
 type ContextType = {
   icon: IconProps;
@@ -69,6 +70,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 function App() {
   return (
     <IconProvider>
+      <Toaster theme='dark' />
       <Layout>
         <CanvasLayout>
           <Canvas />

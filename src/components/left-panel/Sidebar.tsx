@@ -3,7 +3,6 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { CollapsibleComponent } from './Collapsible';
 import { LastIconsSaved } from './LastIconsSaved';
-import { IconProps } from '@/App';
 import {
   Sidebar,
   SidebarContent,
@@ -21,13 +20,13 @@ import { Shuffle } from 'lucide-react';
 const COLUMNS = 4;
 
 export function LeftSidebar() {
-  const { icon, setIcon } = useIconContext();
+  const { icon, setIcon, lastIcons, setLastIcons } = useIconContext();
   const { open } = useSidebar();
 
   const parentRef = useRef<HTMLDivElement>(null);
   const [iconSearch, setIconSearch] = useState('');
   const [renderIcons, setRenderIcons] = useState(true);
-  const [lastIcons, setLastIcons] = useState<IconProps[]>([]);
+  
 
   const filteredIcons = Object.entries(icons).filter(([key]) => key.toLowerCase().includes(iconSearch.toLowerCase()));
 
@@ -41,7 +40,7 @@ export function LeftSidebar() {
     if (savedIcons) {
       setLastIcons(JSON.parse(savedIcons));
     }
-  }, []);
+  }, [setLastIcons]);
 
   const rowVirtualizer = useVirtualizer({
     count: rows.length,
@@ -73,16 +72,14 @@ export function LeftSidebar() {
             variant="outline"
             onClick={() => {
               const randomIcon = getRandomIcon();
-              setIcon({ ...icon, iconName: randomIcon });
+              setIcon({ ...randomIcon });
             }}
           >
             <Shuffle />
           </Button>
         </SidebarGroup>
-        <SidebarGroup>
           <LastIconsSaved lastIcons={lastIcons} setLastIcons={setLastIcons} />
-        </SidebarGroup>
-        <SidebarGroup className="p-0 flex-1">
+
           <CollapsibleComponent
             title="All icons"
             onClick={() => {
@@ -134,7 +131,6 @@ export function LeftSidebar() {
               </SidebarMenu>
             </SidebarGroupContent>
           </CollapsibleComponent>
-        </SidebarGroup>
       </SidebarContent>
     </Sidebar>
   );
