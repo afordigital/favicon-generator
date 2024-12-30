@@ -14,7 +14,7 @@ export const Collapsible = ({
   return (
     <ShadCNCollapsible.Collapsible
       {...props}
-      className={`group/collapsible w-full ${props.className}`}
+      className={`group/collapsible w-full flex flex-col ${props.className}`}
       onOpenChange={onCollapsibleChange}
     >
       <div className="px-2">
@@ -30,7 +30,7 @@ export const Collapsible = ({
         </ShadCNCollapsible.CollapsibleTrigger>
       </div>
 
-      <ShadCNCollapsible.CollapsibleContent className="h-full px-2">{children}</ShadCNCollapsible.CollapsibleContent>
+      <ShadCNCollapsible.CollapsibleContent className="flex-1 px-2">{children}</ShadCNCollapsible.CollapsibleContent>
     </ShadCNCollapsible.Collapsible>
   );
 };
