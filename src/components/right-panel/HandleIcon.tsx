@@ -31,7 +31,6 @@ export const HandleIcon = () => {
         <Input
           id="angle"
           onChange={(event) => {
-
             setIcon({
               ...icon,
               angle: event.target.value ? Math.max(-360, Math.min(Number(event.target.value), 360)) : undefined,
