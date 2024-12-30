@@ -9,7 +9,7 @@ export const downloadSvg = (svgElement: SVGSVGElement) => {
   a.href = url;
   a.download = 'favicon.svg';
   a.click();
-  // GC won't collect it otherwise
+
   URL.revokeObjectURL(url);
 };
 

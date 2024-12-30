@@ -1,7 +1,7 @@
-import { CollapsibleComponent } from '../left-panel/Collapsible';
+import { Collapsible } from '../left-panel/Collapsible';
 import { HandleBackground } from './HandleBackground';
 import { HandleIcon } from './HandleIcon';
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu } from '@/components/ui/sidebar';
+import { Sidebar, SidebarContent } from '@/components/ui/sidebar';
 
 export function RightSidebar() {
   return (
@@ -11,22 +11,16 @@ export function RightSidebar() {
       style={{ paddingTop: 'calc(var(--header-height) + 0.5rem)' }}
       variant="floating"
     >
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <CollapsibleComponent title="Background Props">
-                <HandleBackground />
-              </CollapsibleComponent>
-              <CollapsibleComponent title="Icon Props">
-                <HandleIcon />
-              </CollapsibleComponent>
-              <CollapsibleComponent title="Help">
-                <p>Sálvame de comuafor por favor</p>
-              </CollapsibleComponent>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+      <SidebarContent className="py-2 text-xs">
+        <Collapsible defaultOpen trigger="Background Props">
+          <HandleBackground />
+        </Collapsible>
+        <Collapsible defaultOpen trigger="Icon Props">
+          <HandleIcon />
+        </Collapsible>
+        <Collapsible trigger="Help">
+          <p>Sálvame de comuafor por favor</p>
+        </Collapsible>
       </SidebarContent>
     </Sidebar>
   );

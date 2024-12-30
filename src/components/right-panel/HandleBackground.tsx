@@ -51,7 +51,7 @@ export const HandleBackground = () => {
         <p>Radius</p>
         <Input
           onChange={(event) => {
-            setIcon({ ...icon, radius: Number(event.target.value) });
+            setIcon({ ...icon, radius: event.target.value ? Number(event.target.value) : undefined });
           }}
           className="max-w-[200px]"
           type="number"
@@ -73,7 +73,7 @@ export const HandleBackground = () => {
           <p>Noise Opacity</p>
           <Input
             onChange={(event) => {
-              setIcon({ ...icon, noiseOpacity: Number(event.target.value) });
+              setIcon({ ...icon, noiseOpacity: event.target.value ? Number(event.target.value) : undefined });
             }}
             className="max-w-[200px]"
             type="number"

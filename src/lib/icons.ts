@@ -11,13 +11,13 @@ export const isLucideIcon = (iconName: string): iconName is Icon => {
 
 // This function converts the icon object into an array of arrays,
 // given the number of columns and the array of icons it will generate a grid of icons.
-export const generateIconsGrid = <T>({ cols = 4, arr }: { cols?: number; arr: T[] }) => {
+export const generateIconsGrid = <T>({ columns = 4, items }: { columns: number; items: T[] }) => {
   // create 4 columns for each row
   const rows = Array.from(
     {
-      length: Math.ceil(arr.length / cols),
+      length: Math.ceil(items.length / columns),
     },
-    (_, idx) => arr.slice(idx * cols, idx * cols + cols),
+    (_, idx) => items.slice(idx * columns, idx * columns + columns),
   );
 
   return rows;
