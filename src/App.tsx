@@ -3,7 +3,7 @@ import { Canvas } from './components/middle-canvas/Canvas';
 import { CanvasLayout } from './components/middle-canvas/CanvasLayout';
 import { IconProvider } from './context/context';
 import Layout from './layouts/Layout';
-import { icons } from './lib/icons';
+import { IconName } from './lib/icons';
 import { Toaster } from '@pheralb/toast';
 
 export type BgColorType = 'LinearGradient' | 'RadialGradient' | 'Solid';
@@ -19,7 +19,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
   strokeColor: string;
   noiseTexture: boolean;
   noiseOpacity?: number;
-  iconName: keyof typeof icons;
+  iconName: IconName;
   color: string;
   iconSize?: number;
   xOffset?: number;

@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { IconContext } from './iconContext';
 import type { IconProps } from '@/App';
+import { Icons } from '@/lib/icons';
 import { useHistoryState } from '@uidotdev/usehooks';
 
 const DEFAULT_ICON: IconProps = {
@@ -25,6 +26,7 @@ const DEFAULT_ICON: IconProps = {
 export const IconProvider = ({ children }: { children: ReactNode }) => {
   const [svgElement, setSvgElement] = useState<SVGSVGElement | null>(null);
   const [lastIcons, setLastIcons] = useState<IconProps[]>([]);
+  const [importedIcons, setImportedIcons] = useState<Icons>({});
 
   const {
     state: icon,
@@ -56,6 +58,8 @@ export const IconProvider = ({ children }: { children: ReactNode }) => {
         setSvgElement,
         lastIcons,
         setLastIcons,
+        importedIcons,
+        setImportedIcons,
       }}
     >
       {children}
