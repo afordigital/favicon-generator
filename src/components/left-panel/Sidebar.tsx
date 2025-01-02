@@ -3,6 +3,7 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Collapsible } from './Collapsible';
 import { LastIconsSaved } from './LastIconsSaved';
+import { UploadInput } from './UploadInput';
 import { Sidebar, SidebarContent, SidebarHeader, useSidebar } from '@/components/ui/sidebar';
 import { useIconContext } from '@/context/useIconContext';
 import { generateIconsGrid, icons, isLucideIcon } from '@/lib/icons';
@@ -77,6 +78,7 @@ export function LeftSidebar() {
         >
           <Shuffle />
         </Button>
+        <UploadInput />
       </SidebarHeader>
 
       <SidebarContent className="h-full overflow-hidden">
