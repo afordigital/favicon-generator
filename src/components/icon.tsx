@@ -1,21 +1,26 @@
-import { icons } from "lucide-react";
-import { ComponentProps } from "react";
+import { ComponentProps } from 'react';
+import { useIconContext } from '@/context/useIconContext';
+import { IconName } from '@/lib/icons';
+import { icons } from 'lucide-react';
 
 const Icon = ({
   name,
   ...props
 }: {
-  name: keyof typeof icons;
-} & ComponentProps<"svg">) => {
-  const LucideIcon = icons[name];
+  name: IconName;
+} & ComponentProps<'svg'>) => {
+  const { importedIcons } = useIconContext();
 
+  const allIcons = { ...icons, ...importedIcons } as const;
 
-  if (!LucideIcon) {
-    console.error(`Icon "${name}" not found in lucide-react.`);
+  const Icon = allIcons[name as keyof typeof allIcons];
+
+  if (!Icon) {
+    console.error(`Icon "${name}" not found in lucide-react nor in your own imported icons.`);
     return null;
   }
 
-  return <LucideIcon {...props} />;
+  return <Icon {...props} />;
 };
 
 export default Icon;
