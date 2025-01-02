@@ -2,12 +2,12 @@ import { icons as LucideIcons } from 'lucide-react';
 
 export const icons = LucideIcons;
 
-export type Icon = keyof typeof icons;
+export type Icons = typeof icons;
 
-export type ImportedIcons = typeof icons;
+export type IconName = keyof typeof icons | (string & {});
 
 export const iconNames = Object.keys(icons);
-export const isLucideIcon = (iconName: string): iconName is Icon => {
+export const isLucideIcon = (iconName: string): iconName is IconName => {
   return iconNames.includes(iconName);
 };
 

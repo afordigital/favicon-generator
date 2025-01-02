@@ -126,7 +126,7 @@ export const Canvas = () => {
         rx={icon.radius}
         ry={icon.radius}
         opacity={`${icon.noiseOpacity}%`}
-        clip-path="url(#image-clip)"
+        clipPath="url(#image-clip)"
       />
     </svg>
   );

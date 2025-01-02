@@ -52,10 +52,16 @@
   transform: scale(var(--zoom));
 }
 
+.icon {
+  & :is(path, rect, circle, ellipse, line, polygon, polyline) {
+    stroke: currentColor;
+  }
+}
+
 @font-face {
   font-family: Righteous;
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/righteous.woff2") format("woff2");
+  src: url('/fonts/righteous.woff2') format('woff2');
 }
