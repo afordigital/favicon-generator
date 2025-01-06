@@ -9,7 +9,6 @@ Design unique and professional favicons for your website in seconds.
 ![image](https://github.com/user-attachments/assets/1f23f6fd-4da3-4190-b8fb-f18f95a4667e)
 
 
-
 ## Overview
 
 
@@ -30,11 +29,14 @@ Ensure you have the following installed on your system:
 - [npm](https://www.npmjs.com/)
 
 ### Installation
+
 Clone the repository and navigate to the project directory:
+
 ```bash
  git clone https://github.com/afordigital/palette-generator.git
  cd palette-generator
 ```
+
 ##### Install the dependencies:
 
 ```bash
@@ -42,11 +44,15 @@ npm install
 ```
 
 ## Running the Application
+
 Start the development server:
+
 ```bash
 npm run dev
 ```
+
 You should see output similar to this:
+
 ```bash
 VITE v5.4.11  ready in 438 ms
 
@@ -54,25 +60,28 @@ VITE v5.4.11  ready in 438 ms
 ➜  Network: http://192.168.1.44:5173/
 ➜  press h + enter to show help
 ```
+
 Open your browser and navigate to the provided URL (http://localhost:5173/) to access the application.
+
 ## Contributing
+
 We welcome contributions to enhance the Palette Generator. Follow these steps to get started: 
 
-1.Fork the repository. 
+1. Fork the repository. 
 
-2.Create a feature branch:
+2. Create a feature branch:
 ```bash
 git checkout -b feature-name
 ```
-3.Commit your changes:
+3. Commit your changes:
 ```bash
 git commit -m "Add feature-name"
 ```
-4.Push to the branch:
+4.P ush to the branch:
 ```bash
 git push origin feature-name
 ```
-5.Create a Pull Request
+5. Create a Pull Request
 
 ## Recommended Extensions
 
@@ -88,6 +97,14 @@ For an improved development experience in Visual Studio Code, consider installin
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [Auto Import](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport)
 - [Auto Complete Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-complete-tag)
+
+## Contributors
+
+Thanks to all the contributors who have made this project possible!
+
+[![Contributors](https://contrib.rocks/image?repo=afordigital/palette-generator)](https://github.com/afordigital/palette-generator/graphs/contributors)
+
+
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
