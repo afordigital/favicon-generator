@@ -3,13 +3,16 @@ import { useIconContext } from '@/context/useIconContext';
 import { downloadAsPng, downloadSvg } from '@/lib/dom';
 import { toast } from '@pheralb/toast';
 
-export const DownloadButtons = () => {
+export const DownloadButtons = ({ visibility }: { visibility: boolean }) => {
   const { svgElement, icon, lastIcons, setLastIcons } = useIconContext();
 
   return (
-    <div className="flex items-center justify-end gap-2">
+    <div
+      className={`flex w-[90%] sm:max-w-full items-center ${visibility ? 'flex flex-col sm:flex-row' : 'hidden'} justify-end gap-2`}
+    >
       <Button
         variant="outline"
+        className="w-full sm:w-fit"
         onClick={() => {
           const newIcon = { ...icon, id: crypto.randomUUID() };
 
@@ -25,6 +28,7 @@ export const DownloadButtons = () => {
       </Button>
       <Button
         variant="outline"
+        className="w-full sm:w-fit"
         onClick={() => {
           if (!svgElement) return;
           downloadSvg(svgElement);
@@ -38,6 +42,7 @@ export const DownloadButtons = () => {
       </Button>
       <Button
         variant="outline"
+        className="w-full sm:w-fit"
         onClick={() => {
           if (!svgElement) return;
           downloadAsPng(svgElement);

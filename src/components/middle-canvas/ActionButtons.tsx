@@ -14,7 +14,7 @@ export const ActionButtons = () => {
         disabled={!canUndo}
       >
         <Undo />
-        Undo
+        <span className="hidden sm:inline">Undo</span>
       </Button>
       <Button
         className="border-2 text-white border-white border-solid hover:bg-neutral-800"
@@ -22,7 +22,7 @@ export const ActionButtons = () => {
         variant="outline"
         disabled={!canRedo}
       >
-        Redo
+        <span className="hidden sm:inline">Redo</span>
         <Redo />
       </Button>
     </div>

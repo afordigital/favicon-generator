@@ -52,6 +52,12 @@
   transform: scale(var(--zoom));
 }
 
+@media (width <= 768px) {
+  .zoom {
+    --zoom: 0.5;
+  }
+}
+
 .icon {
   & :is(path, rect, circle, ellipse, line, polygon, polyline) {
     stroke: currentColor;
