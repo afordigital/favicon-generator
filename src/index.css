@@ -50,6 +50,24 @@
   padding-right: 8px;
 }
 
+section:has(.zoom) {
+  /* para menos de 375px */
+  scale: 0.55;
+  transition: scale 0.3s ease-in-out;
+
+  @media (width >= 375px) {
+    scale: 0.65;
+  }
+
+  @media (width >= 425px) {
+    scale: 0.73;
+  }
+
+  @media (width >= 768px) {
+    scale: 1;
+  }
+}
+
 .zoom {
   transform: scale(var(--zoom));
 }
