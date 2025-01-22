@@ -77,7 +77,7 @@ git checkout -b feature-name
 ```bash
 git commit -m "Add feature-name"
 ```
-4.P ush to the branch:
+4.Push to the branch:
 ```bash
 git push origin feature-name
 ```
